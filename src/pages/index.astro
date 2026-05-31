@@ -5,6 +5,8 @@ import FeatureCard from "../components/FeatureCard.astro";
 import { asset } from "../utils/asset.ts";
 import { getCollection } from "astro:content";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const featuredFigures = (await getCollection("figures")).filter(
   (f) => f.data.featured === true
 );
@@ -65,7 +67,7 @@ const featuredFigures = (await getCollection("figures")).filter(
           </div>
         ))}
       </div>
-      <a href={`${import.meta.env.BASE_URL}figuras`} class="ver-todas">
+      <a href={`${base}/figuras`} class="ver-todas">
         Ver todas las figuras →
       </a>
     </section>
@@ -74,17 +76,17 @@ const featuredFigures = (await getCollection("figures")).filter(
   <section class="container features">
     <FeatureCard
       title="Cursos"
-      href={`${import.meta.env.BASE_URL}/cursos`}
+      href={`${base}/cursos`}
       description="Formación especializada en TikZ, PGFPlots y escritura científica con LaTeX."
     />
     <FeatureCard
       title="Tutoriales"
-      href={`${import.meta.env.BASE_URL}/tutoriales`}
-      description="Guías paso a paso sobre visualización científica, LaTeX y comunicación técnica."
+      href={`${base}/tutoriales`}
+      description="Guías paso a paso sobre visualización científica, LaTeX y comunicación téc nica."
     />
     <FeatureCard
       title="Figuras"
-      href={`${import.meta.env.BASE_URL}/figuras`}
+      href={`${base}/figuras`}
       description="Galería seleccionada de diagramas, gráficas e ilustraciones científicas."
     />
   </section>
