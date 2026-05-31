@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import { asset } from "../../utils/asset.ts";
+import { getCollection, getEntry, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const courses = await getCollection("courses");
+  return courses.map((course) => ({
+    params: { id: course.id },
+  }));
+}
+
+const { id } = Astro.params;
+const course = await getEntry("courses", id);
+
+if (!course) {
+  return Astro.redirect("/cursos");
+}
+
+const { Content } = await render(course);
+---
+
+<BaseLayout title={`${course.data.title} — Ars Mathematica`}>
+
+  <Header />
+
+  <main class="container page">
+
+    <div class="course-hero">
+      <span class="course-code">{course.data.code}</span>
+      <h1>{course.data.title}</h1>
+      <span class="course-level">{course.data.level}</span>
+      <p class="course-summary">{course.data.summary}</p>
+    </div>
+
+    <div class="course-image">
+      <img src={asset(course.data.image)} alt={course.data.title} />
+    </div>
+
+    <div class="course-content">
+      <Content />
+    </div>
+
+  </main>
+
+</BaseLayout>

@@ -1,0 +1,444 @@
+/*  Variables  */
+
+:root {
+  --text: #222;
+  --muted: #666;
+  --border: #e5e5e5;
+  --background: #ffffff;
+}
+
+/*  Reset  */
+
+* {
+  box-sizing: border-box;
+}
+
+/*  Base  */
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*  Layout  */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.page {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
+
+/*  Typography  */
+
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.site-title {
+  font-family: "Libre Baskerville", serif;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.mantra {
+  font-size: 1rem;
+  color: var(--text);
+  margin-top: 1.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 480px;
+  line-height: 2;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/*  Manifiesto  */
+.manifiesto {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+.manifiesto p + p {
+  margin-top: 1.25rem;
+}
+
+/*  Components  */
+
+.logo {
+  width: 150px;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+/*  Hero  */
+
+.hero {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+/*  Features  */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding-bottom: 6rem;
+}
+
+/*  Section titles  */
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/*  Figuras (homepage)  */
+
+.figuras-home {
+  padding-bottom: 4rem;
+}
+
+.figuras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.figura-card {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.figura-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.figura-title {
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.figura-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.figura-info {
+  padding: 0.75rem;
+}
+
+.figura-instagram {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.figura-instagram:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.ver-todas {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.ver-todas:hover {
+  color: var(--text);
+}
+
+/*  Cursos page  */
+
+.cursos-header {
+  max-width: 680px;
+  margin-bottom: 4rem;
+}
+
+.cursos-intro {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-top: 1rem;
+}
+
+.family-section {
+  margin-bottom: 4rem;
+}
+
+.family-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+
+.family-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.family-description {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/*  CourseCard  */
+
+.course-card {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.course-card:hover {
+  border-color: var(--text);
+}
+
+.course-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.course-card-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.course-code {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.course-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.course-level {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.course-summary {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+
+/*  Course detail page  */
+
+.course-hero {
+  max-width: 680px;
+  margin-bottom: 2rem;
+}
+
+.course-hero h1 {
+  font-size: 2.5rem;
+  margin: 0.25rem 0;
+}
+
+.course-image {
+  max-width: 380px;
+  margin-bottom: 2.5rem;
+}
+
+.course-image img {
+  width: 100%;
+  border-radius: 0px;
+  border: 2px;
+}
+
+.course-content {
+  max-width: 680px;
+}
+
+.course-content h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+}
+
+.course-content p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+.course-content ul {
+  color: var(--muted);
+  line-height: 2;
+  padding-left: 1.25rem;
+}
+
+.course-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* ─── En construcción ────────────────────────────────── */
+
+.en-construccion {
+  text-align: center;
+  padding: 6rem 2rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.construccion-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.construccion-h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.construccion-text {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+/* ─── Header ─────────────────────────────────────────── */
+
+header {
+  border-bottom: 2px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.brand {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* ─── Footer ─────────────────────────────────────────── */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}

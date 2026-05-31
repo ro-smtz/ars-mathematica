@@ -1,0 +1,164 @@
+% -- Curso A2: Día 1 --
+\documentclass[border = 0mm]{standalone} 
+
+% -- entrada
+\usepackage[utf8]{inputenc}
+
+% -- matemáticas y física
+\usepackage{amsmath,physics}
+
+\usepackage{fontspec}
+\usepackage[default]{fontsetup}
+
+% -- color
+\usepackage[dvipsnames]{xcolor}
+
+% -- TikZ
+\usepackage{tikz}
+\usetikzlibrary{
+	math, % para definir variables y funciones
+	angles, quotes, % para dibujar ángulos
+	arrows.meta, % para dibujar flechas
+}
+
+% otras definiciones
+\newcommand{\pointer}[1]{\node[red] at #1 {$\times$};}
+
+% -- Documento principal --
+\begin{document}
+\begin{tikzpicture}[scale = 0.8]
+
+	\tikzmath{
+		\Width = 5.6cm; \Height = 3/4*\Width;
+	};
+
+	\node[
+		inner sep = 0mm,
+		minimum width = \Width,
+		minimum height = \Height,	
+	] (N) at (0,0) {};
+	
+	\clip (N.north west) rectangle (N.south east);
+
+	\begin{scope}[
+		shift = {(N)},
+		shift = {(2.65cm,-1.8cm)},
+	]
+
+	\tikzmath{
+		% parámetros del plano
+		\th = 24; \l = 5.8;
+		% parámetros del tiro
+		\phIni = 60; \vIni = 1.97;
+		\xIni = -0.86*\l*cos(\th); \yIni = -tan(\th)*\xIni;
+		\g = 1;
+		% trayectoria
+		function A(\ph) {
+			return -(\g)/(2*(\vIni)^2*cos(\ph)^2);
+		};
+		function B(\ph) {
+			return tan(\ph) + (\g*\xIni)/((\vIni)^2*cos(\ph)^2);
+		};
+		function C(\ph) {
+			return \yIni - tan(\ph)*\xIni - (\g*(\xIni)^2)/(2*(\vIni)^2*cos(\ph)^2);
+		};
+		%
+		function f(\x,\ph) {
+			return A(\ph)*(\x)^2 + B(\ph)*\x + C(\ph);
+		};
+		% función del alcance
+		\S = 2*(\vIni)^2*sin(\th + \phIni)*cos(\phIni)/(\g*cos(\th)^2);
+	};	
+
+	% definir coordenadas
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (180 - \th:\l);
+	\coordinate (C) at ({-\l*cos(\th)},0);
+
+	% -- ángulo de inclinación del plano
+	\pic[
+		draw,
+		"$\theta$",
+		angle radius = 9mm,
+		angle eccentricity = 1.2,
+	] {angle = B--A--C};
+	
+	\draw[semithick, gray] (A) to (B) to (C) to cycle;
+
+	% -- suelo
+	\fill[gray!15]
+		(C)++(-0.5,0) coordinate (tmp1)
+		rectangle
+		(0.5,-0.4) coordinate (tmp2);
+		
+	\draw[black] (C)++(-0.5,0) to (0.5,0);
+	
+	% -- trayectoria		
+	\begin{scope}
+
+	% máscara de recorte
+	\clip (A)--(B)--++(0,2.5)-|cycle;
+	
+		% curva
+		\draw[dashed, smooth]
+			plot[domain = \xIni:0, samples = 60]
+			(\x,{f(\x,\phIni)});
+		
+		% algunos puntos en la trayectoria
+		\foreach \t in {0.3,0.6,...,3} {
+			\tikzmath{
+				\x = \xIni + \vIni*\t;
+				\y = f(\x,\phIni);
+			}
+			
+			\draw[
+				semithick,
+				gray, fill = gray!50,
+				opacity = \t/3
+			]
+				(\x,\y) circle (1mm);
+		}
+		
+	\end{scope}
+	
+	% -- descripción del p. inicial
+	\coordinate (pIni) at (\xIni,\yIni);
+	
+	\draw
+		(pIni) -- ++(1,0) coordinate (a);
+		
+	% velocidad inicial: vector
+	\draw[very thick, -{Latex[scale = 0.75]}]
+		(pIni) -- ++(\phIni:0.45*\vIni) coordinate (b);	
+	\node[xshift = -2.8mm, yshift = 0.8mm] at (b) {$v_0$};
+	
+	% ángulo inicial
+	\pic[
+		draw,
+		"$\phi$",
+		angle radius = 4mm,
+		angle eccentricity = 1.5,
+	] {angle = a--pIni--b};
+		
+	\node[shift = {(-0.6mm,-4.5mm)}] at (pIni) {\small $(x_0,y_0)$};
+	
+	% alcance
+	\draw[thick]
+		(pIni)
+		--node[below left, black] {$S$}
+		++(-\th:\S) coordinate (pFin);
+	
+	\fill (pIni) circle (0.5mm);
+	\fill (pFin) circle (0.5mm);
+	
+	% -- flecha de la gravedad
+	\coordinate (g) at (-0.3,2.8);
+	
+	\fill[gray!75] (g) circle (0.5mm);
+	\draw[very thick, -{Latex[scale = 0.75]}, gray!75]
+		(g) --node[pos = 0.3, right, black] {$g$} ++(0,-0.8);
+	
+	\end{scope}
+	
+\end{tikzpicture}
+\end{document}

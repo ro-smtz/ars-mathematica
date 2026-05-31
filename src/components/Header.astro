@@ -1,0 +1,21 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<header>
+  <div class="container nav">
+
+    <a href={`${base}/`} class="brand">
+      Ars Mathematica
+    </a>
+
+    <nav>
+      <a href={`${base}/cursos`}>Cursos</a>
+      <a href={`${base}/tutoriales`}>Tutoriales</a>
+      <a href={`${base}/figuras`}>Figuras</a>
+      <a href={`${base}/recursos`}>Recursos</a>
+      <a href={`${base}/sobre`}>Sobre mí</a>
+    </nav>
+
+  </div>
+</header>

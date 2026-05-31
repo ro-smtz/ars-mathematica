@@ -1,0 +1,53 @@
+\documentclass[border = 0mm]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\usepackage{xcolor}
+% --
+\usepackage{tikz}
+\usetikzlibrary{scopes,angles,quotes,calc,intersections,math}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.18}
+
+\usepackage{fontspec}
+\usepackage[default]{fontsetup}
+
+\newcommand{\pointer}[1]{\node[red] at (#1) {$\times$};}
+
+% ---
+\begin{document}
+\begin{tikzpicture}[
+	line join = round, line cap = round,
+]
+
+	\tikzmath{
+		\Width = 5.6cm; \Height = 3/4*\Width;
+	};
+
+	\node[
+		inner sep = 0mm,
+		minimum width = \Width,
+		minimum height = \Height,	
+	] (N) at (0,0) {};
+	
+	\clip (N.north west) rectangle (N.south east);
+	\draw[line width = 0.5pt]
+		([shift = {(2mm,-2mm)}]N.north west)
+		rectangle
+		([shift = {(-2mm,+2mm)}]N.south east);
+				
+	\node[align = justify, text width = 4.4cm] at (0,0) {
+		\large\bfseries
+		Capítulo 1 \\[1mm]
+		\normalsize\bfseries
+		Título del capítulo \\[4.5mm]
+		\small\bfseries
+		1.1 Introducción \\
+		\small\mdseries
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt\dots
+	};
+
+\end{tikzpicture}	
+\end{document}

@@ -1,0 +1,140 @@
+\documentclass[border = 0mm]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\usepackage[default]{fontsetup}
+\usepackage{amsmath}
+
+\usepackage{xcolor}
+% --
+\usepackage{tikz}
+\usetikzlibrary{calc,math,arrows.meta,angles,scopes,backgrounds}
+
+\usepackage{tikz-3dplot}
+\usetikzlibrary{3d}
+
+\newcommand{\pointer}[1]{\node[red] at #1 {$\times$};}
+
+% ---
+\begin{document}
+
+\begin{tikzpicture}[
+	scale = 0.85,
+	line join = round, line cap = round,
+]
+
+	\tikzmath{
+		\Width = 5.6cm; \Height = 3/4*\Width;
+	};
+
+	\node[
+		inner sep = 0mm,
+		minimum width = \Width,
+		minimum height = \Height,	
+	] (N) at (0,0) {};
+	
+	\clip (N.north west) rectangle (N.south east);
+
+	\begin{scope}[
+		shift = (N),
+		shift = {(0,-0.75cm)},
+	]
+	
+	% set point of view
+	\tdplotsetmaincoords{70}{120}
+	
+	% apply point of view
+	\begin{scope}[
+		tdplot_main_coords
+	]
+	
+	% -- shift
+	{ [shift = {(0cm, -0.2cm)}]
+	
+	% origin
+	\coordinate (O) at (0,0,0);
+	
+	% axes
+%	{ [gray!50]
+%  	\draw (O) -- (3,0,0) node[black, shift = {(-1.4mm,-1.4mm)}] {$x$};
+%  	\draw (O) -- (0,3,0) node[black, shift = {(2mm,-0.8mm)}] {$y$};
+%  	\draw (O) -- (0,0,3) node[black, shift = {(0mm,2mm)}] {$z$};
+%	}	
+	
+	% frustum dimensions
+	\tikzmath{
+		\R = 2.3; \r = 1; \H = 2.4;
+		\A = \R*cos(45); \a = \r*cos(45);
+	}
+	
+	% define points of a trucated pyramid
+	\begin{scope}[canvas is xy plane at z = 0]
+	
+	\foreach \i in {1,...,4}
+		\coordinate (P\i) at ({45 + 90*(\i - 1)}:\R); 
+		
+	\end{scope}
+	
+	\begin{scope}[canvas is xy plane at z = \H]
+	\foreach \i in {1,...,4}
+		\coordinate (p\i) at ({45 + 90*(\i - 1)}:\r); 
+	\end{scope}
+	
+	% draw
+	\draw[gray!50]
+		(P3) edge (p3) edge (P4) edge (P2);
+	
+	\draw
+		(p1)--(p2)--(p3)--(p4)--cycle
+		(P4) edge (p4) -- (P1) edge (p1) -- (P2) edge (p2);	
+	
+	% shadows
+	{ [on background layer]
+	
+	\fill[gray, opacity = 0.1]
+		(p1)--(p2)--(p3)--(p4)
+		(p4)--(P4)--(P1)--(p1)--cycle;
+		
+	\fill[gray, opacity = 0.3] (p1)--(P1)--(P2)--(p2)--cycle;
+	
+	% --
+	}
+	
+	% labels
+	{ [canvas is yz plane at x = \A]
+	
+	\draw[gray!50]
+		(-\A,-0.4) coordinate (A1) edge ++(0,0.1) edge ++(0,-0.1)
+		--
+		(\A,-0.4) coordinate (A2) edge ++(0,0.1) edge ++(0,-0.1);
+	
+	\path (A1)--node[inner sep = 2pt, fill = white] {$B$} (A2);
+	
+	}
+	
+	{ [canvas is yz plane at x = -\a]
+	
+	\draw[gray!50]
+		(-\a,\H + 0.4) coordinate (a1) edge ++(0,0.1) edge ++(0,-0.1)
+		--
+		(\a,\H + 0.4) coordinate (a2) edge ++(0,0.1) edge ++(0,-0.1);
+	
+	\path (a1) -- node[inner sep = 2pt, fill = white] {$b$} (a2);
+	
+	}
+	
+	\draw[dashed] (O) --node[left] {$H$} (0,0,\H) coordinate (o);
+	\fill
+		(O) circle (1pt)
+		(o) circle (1pt);
+	
+	% --
+	}
+
+	% --	
+	\end{scope}
+	
+	\end{scope}
+
+\end{tikzpicture}	
+\end{document}

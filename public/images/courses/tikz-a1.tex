@@ -1,0 +1,130 @@
+\documentclass[border = 0mm]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\usepackage{xcolor}
+% --
+\usepackage{tikz}
+\usetikzlibrary{scopes,angles,quotes,calc,intersections,math}
+
+\usepackage{fontspec}
+\usepackage[default]{fontsetup}
+
+\newcommand{\pointer}[1]{\node[red] at (#1) {$\times$};}
+
+% ---
+\begin{document}
+\begin{tikzpicture}[
+	scale = 0.6,
+	line join = round, line cap = round,
+]
+
+	\tikzmath{
+		\Width = 5.6cm; \Height = 3/4*\Width;
+	};
+
+	\node[
+		inner sep = 0mm,
+		minimum width = \Width,
+		minimum height = \Height,	
+	] (N) at (0,0) {};
+	
+	\clip (N.north west) rectangle (N.south east);
+	
+	\begin{scope}[
+		shift = {(N)},
+		shift = {(-2.5cm,-2.4cm)},
+	]
+		
+		% definitions
+		\tikzmath{
+			\a = 35; \b = 75; 
+			\th{a} = 28; \th{b} = 34;	
+		}
+		
+		% original coordinates
+		\coordinate (A) at (0,0.2);
+		\coordinate (B) at (4.2,-0.2);
+		
+		% help lines  
+		\path[name path = b1] (B) -- ++(\b:8);
+		\path[name path = b2] (B) -- ++(\b+\th{b}:8);
+		\path[name path = b3] (B) -- ++(\b+2*\th{b}:8);
+		
+		\path[name path = a1] (A) -- ++(\a:8);
+		\path[name path = a2] (A) -- ++(\a+\th{a}:8);
+		\path[name path = a3] (A) -- ++(\a+2*\th{a}:8);
+		
+		\path[name intersections = {of = b2 and a2, by = C}];
+		
+		\path[name intersections = {of = b3 and a3, by = a}];
+		\path[name intersections = {of = b1 and a1, by = b}];
+		
+		% angles
+		\pic[
+			"$\alpha$" black,
+			draw, semithick, gray, fill = gray!10,
+			angle radius = 4.5mm, angle eccentricity = 1.5
+		]
+			{angle = b--A--C};
+		\pic[
+			"$\alpha$" black,
+			draw, semithick, gray, fill = gray!10,
+			angle radius = 4.5mm, angle eccentricity = 1.5
+		]
+			{angle = C--A--a};
+			
+		\pic[
+			"$\beta$" black,
+			draw, semithick, gray, fill = gray!10,
+			angle radius = 5.5mm, angle eccentricity = 1.4
+		]
+			{angle = b--B--C};
+		\pic[
+			"$\beta$" black,
+			draw, semithick, gray, fill = gray!10,
+			angle radius = 5.5mm, angle eccentricity = 1.4
+		]
+			{angle = C--B--a};
+			
+		\pic[
+			"$\gamma$" black,
+			draw, semithick, gray, fill = gray!10,
+			angle radius = 4.5mm, angle eccentricity = 1.5
+		]
+			{angle = A--C--B};
+			
+		\pic[
+			"$\theta$" black,
+			draw, semithick, gray, fill = gray!10,
+			angle radius = 4mm, angle eccentricity = 1.5
+		]
+			{angle = A--a--B};
+		\pic[
+			"$\phi$" black,
+			draw, semithick, gray, fill = gray!10,
+			angle radius = 5mm, angle eccentricity = 1.5
+		]
+			{angle = A--b--B};
+
+		% main lines
+		\draw[semithick]
+			(A) edge (a) edge (C) edge (b)
+			(B) edge (a) edge (C) edge (b);
+		
+		\draw[dashed] (A)--(B);
+		
+		% labels
+		\node[below, xshift = -2mm] at (A) {$A$};
+		\node[below, xshift = 1mm] at (B) {$B$};
+		\node[above = 1pt] at (C) {$C$};
+		
+		% points
+		\foreach \p in {A,B,C,a,b}
+			\draw[semithick, fill = white] (\p) circle (1.6pt);
+		
+	\end{scope}
+
+\end{tikzpicture}	
+\end{document}

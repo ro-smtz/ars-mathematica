@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import { asset } from "../utils/asset.ts";
+import { getCollection } from "astro:content";
+
+const featuredFigures = (await getCollection("figures")).filter(
+  (f) => f.data.featured === true
+);
+---
+
+<BaseLayout title="Ars Mathematica">
+
+  <Header />
+
+  <main class="container hero">
+
+    <img
+      src={asset("/logo_complete.svg")}
+      alt="Ars Mathematica logo"
+      class="logo"
+    />
+
+    <h1>Ars Mathematica</h1>
+
+    <p class="subtitle">
+      Visualización científica con LaTeX
+    </p>
+
+    <p class="mantra">
+      Non docentibus, sed discentibus;<br />
+      Non eruditis, sed erudiendis.
+    </p>
+
+  </main>
+
+  <section class="container manifiesto">
+    <p>
+      ¡Bienvenidos al sitio oficial del projecto Ars Mathematica!
+      Aquí encontrarás cursos, tutoriales y recursos para aprender a comunicar
+      ciencia con precisión y elegancia, usando LaTeX como herramienta principal.
+    </p>
+  </section>
+
+  {featuredFigures.length > 0 && (
+    <section class="container figuras-home">
+      <h2 class="section-title">Ejemplos destacados</h2>
+      <div class="figuras-grid">
+        {featuredFigures.map((fig) => (
+          <div class="figura-card">
+            <img src={asset(fig.data.image)} alt={fig.data.title} />
+            <p class="figura-title">{fig.data.title}</p>
+            <p class="figura-desc">{fig.data.description}</p>
+            {fig.data.instagram && (
+              <a
+                href={fig.data.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="instagram-link"
+              >
+                Ver en Instagram ↗
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+      <a href={`${import.meta.env.BASE_URL}figuras`} class="ver-todas">
+        Ver todas las figuras →
+      </a>
+    </section>
+  )}
+
+  <section class="container features">
+    <FeatureCard
+      title="Cursos"
+      href={`${import.meta.env.BASE_URL}cursos`}
+      description="Formación especializada en TikZ, PGFPlots y escritura científica con LaTeX."
+    />
+    <FeatureCard
+      title="Tutoriales"
+      href={`${import.meta.env.BASE_URL}tutoriales`}
+      description="Guías paso a paso sobre visualización científica, LaTeX y comunicación técnica."
+    />
+    <FeatureCard
+      title="Figuras"
+      href={`${import.meta.env.BASE_URL}figuras`}
+      description="Galería seleccionada de diagramas, gráficas e ilustraciones científicas."
+    />
+  </section>
+
+</BaseLayout>

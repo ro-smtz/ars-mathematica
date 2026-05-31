@@ -1,0 +1,19 @@
+---
+import { asset } from "../utils/asset.ts";
+const { title, code, level, summary, image, href } = Astro.props;
+---
+
+<a href={href} class="course-card">
+
+  <div class="course-card-image">
+    <img src={asset(image)} alt={title} />
+  </div>
+
+  <div class="course-card-info">
+    <span class="course-code">{code}</span>
+    <h3 class="course-title">{title}</h3>
+    <span class="course-level">{level}</span>
+    <p class="course-summary">{summary}</p>
+  </div>
+
+</a>
