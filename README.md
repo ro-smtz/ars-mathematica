@@ -1,43 +1,126 @@
-# Astro Starter Kit: Minimal
+# Ars Mathematica
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Official website of **Ars Mathematica**, a project dedicated to scientific visualization, technical communication, and education with LaTeX.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The website contains:
 
-## 🚀 Project Structure
+* Courses on LaTeX, TikZ, PGFPlots, and scientific writing.
+* Tutorials and learning resources.
+* A gallery of scientific figures and visualizations.
+* Information about the project and its author.
 
-Inside of your Astro project, you'll see the following folders and files:
+The site is built with Astro and deployed through GitHub Pages.
+
+---
+
+## Technology
+
+* Astro
+* Markdown content collections
+* HTML & CSS
+* GitHub Pages
+
+The project intentionally avoids unnecessary complexity and JavaScript frameworks whenever possible. Most pages are generated statically from Markdown content.
+
+---
+
+## Project Structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── components/      # Reusable UI components
+├── content/         # Markdown content collections
+│   ├── courses/
+│   ├── tutorials/
+│   ├── figures/
+│   └── resources/
+├── layouts/         # Page layouts
+├── pages/           # Site routes
+├── styles/          # Global styles
+└── utils/           # Utility functions
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Static assets such as images are stored in:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```text
+public/
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+---
 
-## 🧞 Commands
+## Course Content
 
-All commands are run from the root of the project, from a terminal:
+Courses are written as Markdown files with frontmatter metadata.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Example:
 
-## 👀 Want to learn more?
+```yaml
+---
+title: "Escritura de Artículos Científicos con LaTeX"
+code: "T1"
+status: "open"
+level: "Inicial"
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+dates: "22–26 de junio de 2026"
+schedule: "7:30 PM – 9:00 PM (UTC-6)"
+modality: "En línea · Zoom"
+
+summary: "Aprende a redactar, estructurar y preparar tu primer artículo científico utilizando LaTeX como una herramienta profesional de trabajo."
+---
+```
+
+The `status` field controls how the course page is displayed:
+
+| Status        | Description                                                     |
+| ------------- | --------------------------------------------------------------- |
+| `open`        | Enrollment information is displayed.                            |
+| `coming-soon` | Course description is available but enrollment is not yet open. |
+| `archived`    | Historical or inactive course.                                  |
+
+---
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the local development server:
+
+```bash
+npm run dev
+```
+
+Build the production version:
+
+```bash
+npm run build
+```
+
+Preview the generated site:
+
+```bash
+npm run preview
+```
+
+---
+
+## Deployment
+
+The site is automatically deployed through GitHub Pages.
+
+Production URL:
+
+https://ro-smtz.github.io/ars-mathematica/
+
+---
+
+## About
+
+Ars Mathematica was created by Rodrigo Sánchez-Martínez as a long-term project for teaching LaTeX, scientific visualization, and technical communication through practical academic workflows.
+
+> Non docentibus, sed discentibus.
+>
+> Non eruditis, sed erudiendis.
