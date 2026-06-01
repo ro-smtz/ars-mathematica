@@ -6,5 +6,7 @@ level: "Intermedio"
 type: "curso"
 image: "/images/courses/dibujo-3d-c1.png"
 summary: "Visualización tridimensional de figuras geométricas y funciones matemáticas con TikZ."
+
+status: "archived"
 featured: false
 ---

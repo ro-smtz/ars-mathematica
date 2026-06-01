@@ -7,7 +7,9 @@ level: "Inicial"
 type: "curso"
 image: "/images/courses/tikz-a1.png"
 summary: "Aprende a crear diagramas geométricos desde cero usando TikZ."
-featured: true
+
+status: "archived"
+featured: false
 ---
 
 ## Descripción

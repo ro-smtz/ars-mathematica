@@ -13,6 +13,10 @@ const courses = defineCollection({
     image: z.string(),
     summary: z.string(),
     featured: z.boolean().optional(),
+    
+    status: z
+      .enum(["open", "coming-soon", "archived"])
+      .default("archived"),  
 
     dates: z.string().optional(),
     schedule: z.string().optional(),

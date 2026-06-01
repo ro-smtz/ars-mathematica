@@ -19,6 +19,10 @@ if (!course) {
 }
 
 const { Content } = await render(course);
+
+const isOpen = course.data.status === "open";
+const isComingSoon = course.data.status === "coming-soon";
+const isArchived = course.data.status === "archived";
 ---
 
 <BaseLayout title={`${course.data.title} — Ars Mathematica`}>
@@ -31,6 +35,24 @@ const { Content } = await render(course);
 
       <div class="course-hero-text">
 
+        {
+          isOpen && (
+            <span class="course-status open">Inscripciones abiertas</span>
+          )
+        }
+
+        {
+          isComingSoon && (
+            <span class="course-status coming-soon">Próximamente</span>
+          )
+        }
+
+        {
+          isArchived && (
+            <span class="course-status archived">Curso archivado</span>
+          )
+        }
+
         <span class="course-meta">
           {course.data.code} · Nivel {course.data.level}
         </span>
@@ -42,20 +64,26 @@ const { Content } = await render(course);
         </p>
 
         <div class="course-facts">
-          <p>{course.data.dates}</p>
-          <p>{course.data.modality}</p>
-          <p>{course.data.schedule}</p>
+          {isOpen && (
+            <>
+              <p>{course.data.dates}</p>
+              <p>{course.data.modality}</p>
+              <p>{course.data.schedule}</p>
+            </>
+          )}  
         </div>
-
-        <a
-          href={course.data.cta_link}
-          class="course-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Solicitar inscripción por Whatsapp"
-        >
-          {course.data.cta_label}
-        </a>
+        
+        {isOpen && (
+          <a
+            href={course.data.cta_link}
+            class="course-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Solicitar inscripción por Whatsapp"
+          >
+            {course.data.cta_label}
+          </a>
+        )}
 
       </div>
 
@@ -72,7 +100,7 @@ const { Content } = await render(course);
       <Content />
     </div>
   
-    {course.data.pricing && (
+    {isOpen && course.data.pricing && (
       <section class="pricing-section">
 
         <h2>Costos de inscripción</h2>
@@ -98,43 +126,47 @@ const { Content } = await render(course);
       </section>
     )}
 
-    <section class="payment-section">
+    {isOpen && (
+      <section class="payment-section">
 
-      <h2>Formas de pago</h2>
+        <h2>Formas de pago</h2>
 
-      <ul>
-        <li>
-          <strong>México:</strong>
-          depósito o transferencia bancaria.
-        </li>
+        <ul>
+          <li>
+            <strong>México:</strong>
+            depósito o transferencia bancaria.
+          </li>
 
-        <li>
-          <strong>Extranjero:</strong>
-          pago mediante PayPal.
-        </li>
-      </ul>
+          <li>
+            <strong>Extranjero:</strong>
+            pago mediante PayPal.
+          </li>
+        </ul>
 
-    </section>
+      </section>
+    )}
 
-    <section class="enrollment-section">
+    {isOpen &&(
+      <section class="enrollment-section">
 
-      <h2>¿Deseas participar en esta edición?</h2>
+        <h2>¿Deseas participar en esta edición?</h2>
 
-      <p>
-        Si tienes alguna duda sobre horarios,
-        pagos o requisitos, puedes escribirme directamente.
-      </p>
+        <p>
+          Si tienes alguna duda sobre horarios,
+          pagos o requisitos, puedes escribirme directamente.
+        </p>
 
-      <a
-        href={course.data.cta_link}
-        class="course-cta"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {course.data.cta_label}
-      </a>
+        <a
+          href={course.data.cta_link}
+          class="course-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {course.data.cta_label}
+        </a>
 
-    </section>
+      </section>
+    )}
 
   </main>
 

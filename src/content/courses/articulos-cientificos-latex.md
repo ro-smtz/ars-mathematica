@@ -11,6 +11,7 @@ image: "/images/courses/articulos-cientificos-latex.png"
 
 summary: "Aprende a redactar, estructurar y preparar tu primer artículo científico utilizando LaTeX como una herramienta profesional de trabajo."
 
+status: "open"
 featured: false
 
 edition: "Junio 2026"
