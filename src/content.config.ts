@@ -13,6 +13,21 @@ const courses = defineCollection({
     image: z.string(),
     summary: z.string(),
     featured: z.boolean().optional(),
+
+    dates: z.string().optional(),
+    schedule: z.string().optional(),
+    modality: z.string().optional(),
+
+    cta_label: z.string().optional(),
+    cta_link: z.string().optional(),
+
+    pricing: z.array(
+      z.object({
+        title: z.string(),
+        price: z.string(),
+        description: z.string(),
+      })
+    ).optional(),
   }),
 });
 

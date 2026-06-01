@@ -27,20 +27,114 @@ const { Content } = await render(course);
 
   <main class="container page">
 
-    <div class="course-hero">
-      <span class="course-code">{course.data.code}</span>
-      <h1>{course.data.title}</h1>
-      <span class="course-level">{course.data.level}</span>
-      <p class="course-summary">{course.data.summary}</p>
-    </div>
+    <section class="course-hero">
 
-    <div class="course-image">
-      <img src={asset(course.data.image)} alt={course.data.title} />
-    </div>
+      <div class="course-hero-text">
+
+        <span class="course-meta">
+          {course.data.code} · Nivel {course.data.level}
+        </span>
+
+        <h1>{course.data.title}</h1>
+
+        <p class="course-summary">
+          {course.data.summary}
+        </p>
+
+        <div class="course-facts">
+          <p>{course.data.dates}</p>
+          <p>{course.data.modality}</p>
+          <p>{course.data.schedule}</p>
+        </div>
+
+        <a
+          href={course.data.cta_link}
+          class="course-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Solicitar inscripción por Whatsapp"
+        >
+          {course.data.cta_label}
+        </a>
+
+      </div>
+
+      <div class="course-hero-image">
+        <img
+          src={asset(course.data.image)}
+          alt={course.data.title}
+        />
+      </div>
+
+    </section>
 
     <div class="course-content">
       <Content />
     </div>
+  
+    {course.data.pricing && (
+      <section class="pricing-section">
+
+        <h2>Costos de inscripción</h2>
+
+        <div class="pricing-grid">
+
+          {course.data.pricing.map((plan) => (
+            <div class="pricing-card">
+
+              <h3>{plan.title}</h3>
+
+              <div class="pricing-price">
+                {plan.price}
+              </div>
+
+              <p>{plan.description}</p>
+
+            </div>
+          ))}
+
+        </div>
+
+      </section>
+    )}
+
+    <section class="payment-section">
+
+      <h2>Formas de pago</h2>
+
+      <ul>
+        <li>
+          <strong>México:</strong>
+          depósito o transferencia bancaria.
+        </li>
+
+        <li>
+          <strong>Extranjero:</strong>
+          pago mediante PayPal.
+        </li>
+      </ul>
+
+    </section>
+
+    <section class="enrollment-section">
+
+      <h2>¿Deseas participar en esta edición?</h2>
+
+      <p>
+        Si tienes alguna duda sobre horarios,
+        pagos o requisitos, puedes escribirme directamente.
+      </p>
+
+      <a
+        href={course.data.cta_link}
+        class="course-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {course.data.cta_label}
+      </a>
+
+    </section>
 
   </main>
 
