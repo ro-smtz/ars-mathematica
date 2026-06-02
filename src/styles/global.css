@@ -681,7 +681,7 @@ footer {
 
   .course-hero {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .course-hero-image img {
@@ -705,12 +705,18 @@ footer {
   }  
 
   .instructor-section {
-  grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .instructor-photo {
     max-width: 220px;
     margin: 0 auto;
+  }
+
+  .page {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
   }
 }
 
