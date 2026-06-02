@@ -425,7 +425,7 @@ h1 {
   margin: 2rem 0;
 }
 
-.course-content blockquote {
+blockquote {
   border-left: 4px solid var(--border);
   margin: 2rem 0;
   padding-left: 1.25rem;
