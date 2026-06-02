@@ -667,6 +667,12 @@ footer {
 
 @media (max-width: 768px) {
 
+  .logo {
+    width: 150px;
+    margin-top: 2rem;
+    display: block;
+  }
+
   .container {
     padding: 0 1rem;
   }  

@@ -102,6 +102,7 @@ const isArchived = course.data.status === "archived";
       <Content />
     </div>
 
+    {(isOpen || isComingSoon) && (
     <div class="course-content">
       <h2> Acerca del instructor </h2>
       <section class="instructor-section">
@@ -125,7 +126,7 @@ const isArchived = course.data.status === "archived";
           </p>
 
           <p class = "instructor-link">
-            <a href=`${base}/sobre`>
+            <a href={base + "/sobre"}>
               Conoce más sobre mi investigación y el proyecto Ars Mathematica →
             </a>
           </p>
@@ -133,6 +134,7 @@ const isArchived = course.data.status === "archived";
 
       </section>
     </div>
+    )}
 
     {isOpen && course.data.pricing && (
       <section class="pricing-section">
