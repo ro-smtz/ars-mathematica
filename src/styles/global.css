@@ -427,9 +427,12 @@ h1 {
 
 blockquote {
   border-left: 4px solid var(--border);
+
   margin: 2rem 0;
   padding-left: 1.25rem;
+
   color: var(--muted);
+  font-style: italic;
 }
 
 .course-cta {
