@@ -1,6 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
+
+import { getEntry, render } from "astro:content";
+
+const page = await getEntry("pages", "sobre");
+
+if (!page) {
+  throw new Error("Page not found");
+}
+
+const { Content } = await render(page);
 ---
 
 <BaseLayout title="Sobre mí">
@@ -9,13 +19,7 @@ import Header from "../components/Header.astro";
 
   <main class="container">
 
-    <h1>Sobre mí</h1>
-
-    <p>
-      Rodrigo Sánchez Martínez es físico experimental,
-      investigador y educador especializado en visualización
-      científica mediante LaTeX.
-    </p>
+    <Content />
 
   </main>
 
