@@ -2,17 +2,6 @@
 title: "Sobre mí"
 ---
 
-# Sobre mí
-
-¡Hola! Bienvenido(a) a mi página personal. 
-Aquí podrás encontrar más información acerca de mis facetas como investigador, docente y divulgador.
-
-Mi nombre es Rodrigo Sánchez Martínez, soy físico experimental, docente y entusiasta de la comunicación científica.
-A lo largo de mi formación académica he desarrollado un interés particular por las herramientas que nos permiten representar ideas complejas de manera clara, precisa y visualmente atractiva.
-
-Actualmente realizo estudios de doctorado en física experimental, estudiando propiedades ópticas de nanoestructuras.
-Mi investigación se centra en sistemas de interacción fuerte luz–materia, particularmente polaritones de intercavidad.
-
 Durante estos años he tenido la oportunidad de aprender y utilizar diversas técnicas experimentales, incluyendo técnicas de espectroscopía, creación de luz estructurada y síntesis de puntos cuánticos.
 Más recientemente, he dedicado una parte importante de mi trabajo a la automatización de protocolos experimentales utilizando MATLAB y, en particular, a la construcción de un sistema de espectroscopía ultrarrápida para nuestro laboratorio.
 

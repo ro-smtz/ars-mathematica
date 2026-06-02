@@ -1,8 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
+import AboutHero from "../components/AboutHero.astro";
 
 import { getEntry, render } from "astro:content";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const page = await getEntry("pages", "sobre");
 
@@ -18,6 +21,27 @@ const { Content } = await render(page);
   <Header />
 
   <main class="container">
+
+  <h1>Sobre mí</h1>
+
+  <p>
+    ¡Hola! Bienvenido(a) a mi página personal. 
+    Aquí podrás encontrar más información acerca de mis facetas como investigador, docente y divulgador.
+  </p>  
+
+  <AboutHero image={`${base}/images/rodrigo.png`}>
+
+    <p>
+      Mi nombre es Rodrigo Sánchez Martínez, soy físico experimental, docente y entusiasta de la comunicación científica.
+      A lo largo de mi formación académica he desarrollado un interés particular por las herramientas que nos permiten representar ideas complejas de manera clara, precisa y visualmente atractiva.
+    </p>
+
+    <p>
+      Actualmente realizo estudios de doctorado en física experimental, estudiando propiedades ópticas de nanoestructuras.
+      Mi investigación se centra en sistemas de interacción fuerte luz-materia, particularmente polaritones de intercavidad.
+    </p>
+
+  </AboutHero>
 
     <Content />
 

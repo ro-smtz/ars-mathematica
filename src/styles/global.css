@@ -204,6 +204,10 @@ h1 {
   margin-bottom: 4rem;
 }
 
+.cursos-header h1 {
+  margin-top: 0;
+}
+
 .cursos-intro {
   color: var(--muted);
   font-size: 1.05rem;
@@ -592,6 +596,22 @@ h1 {
   line-height: 1.9;
 }
 
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+
+  margin-bottom: 3rem;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 280px;
+
+  border-radius: 12px;
+}
+
 /* ─── Header ─────────────────────────────────────────── */
 
 header {
@@ -723,6 +743,14 @@ footer {
   .page {
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    order: -1;
   }
 }
 

@@ -1,0 +1,15 @@
+---
+const { image } = Astro.props;
+---
+
+<section class="about-hero">
+
+  <div class="about-photo">
+    <img src={image} alt="Rodrigo Sánchez-Martínez" />
+  </div>
+
+  <div class="about-text">
+    <slot />
+  </div>
+
+</section>
