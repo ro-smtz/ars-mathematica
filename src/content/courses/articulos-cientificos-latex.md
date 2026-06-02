@@ -40,28 +40,49 @@ pricing:
 
 En este curso intensivo aprenderás los fundamentos básicos de la escritura de un documento de LaTeX de la clase `article`, con especial énfasis en las dificultades reales que un estudiante se encuentra a la hora de escribir un verdadero artículo científico.
 
-Revisaremos temas básicos como tipos de listas, referencias cruzadas y división jerárquica de un documento, pero también algunos ligeramente más avanzados como uso de archivos `.bib` para el manejo de bibliografía.
-Además, teniendo como objetivo final la escritura de un documento estándar de dos columnas, abordaremos temas con utilidad prática como manejo de figuras y tablas, tratamiento avanzado de texto matemático. 
-
-## Qué aprenderás
-
-Al finalizar el curso, serás capaz de:
-
-- Crear documentos científicos utilizando la clase `article`.
-- Organizar correctamente secciones, listas y referencias cruzadas.
-- Incorporar figuras y tablas de manera profesional.
-- Escribir expresiones matemáticas de uso frecuente en artículos científicos.
-- Gestionar bibliografía mediante archivos `.bib`.
-- Preparar un artículo científico estándar de dos columnas.
-
-## Qué incluye el curso
+Además de revisar aspectos ténicos como escritura de texto matemático, referencias cruzadas o uso de archivos `.bib` para el manejo de bibliografía, estudiaremos manuales de estilo de revistas científicas reales para aprender a redactar de manera correcta nuestros trabajos. Como proyecto final, escribiremos un documento tipo artículo de publicación de dos columnas utilizando una plantilla predefinida inspirada en plantillas de revistas reales. 
 
 El curso incluye:
 
-1. Cinco sesiones en vivo por la plataforma de Zoom (+1 sesión adicional para aquellas personas que nunca hayan usando LaTeX).
+1. Cinco sesiones en vivo por la plataforma de Zoom.
 2. Material didáctico especialmente diseñado para el curso.
 3. Acceso a todas las grabaciones en caso de no poder asistir en vivo.
 4. Atención personalizada durante todo el curso, vía WhatsApp.
+
+El curso está dedicado a estudiantes, investigadores y profesores del área de física, matemáticas e ingeniería, que tengan un conocimiento básico de la sintaxis de LaTeX y quieran aprender técnicas un poco más avanzadas, dirigidas a la escritura de artículos científicos.
+Sin embargo, para aquellas personas que nunca hayan manejado antes LaTeX o quisieran reforzar sus bases, es posible acceder a una sesión especial con precio adicional, en la que revisaremos paso a paso cómo introducirse a este lenguaje de texto.
+
+## Programa del curso
+
+El curso está organizado en tres unidades progresivas.
+A lo largo de la semana construiremos paso a paso un documento completo, desde los conceptos fundamentales hasta el formato utilizado por revistas científicas reales.
+
+#### Sesión introductoria (opcional)
+
+* ¿Qué es LaTeX y porqué debería aprender a usarlo?
+* Conceptos fundamentales: editor, compilador, distribuidor de paquetes
+* Creación de tu primer documento en LaTeX
+* Algunos consejos básicos
+
+#### Unidad 1 · Estructura de todo artículo científico
+
+* Cómo organizar el contenido de un documento 
+* Uso de `\maketitle` y del entorno `{abstract}` 
+* Referencias cruzadas
+* Incluir bibliografía
+
+#### Unidad 2 · Aplicaciones y utilidades
+
+* Paqueterías indispensables en física y matemáticas
+* Escritura de texto matemático
+* Uso de imágenes externas 
+* Cómo definir tus propios comandos
+
+#### Unidad 3 · Preparando un manuscrito para publicación
+
+* Trabajar con documentos de doble columna
+* Reglas editoriales generales
+* Uso de un template realista de revista científica
 
 ## Participación internacional
 

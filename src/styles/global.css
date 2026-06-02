@@ -399,7 +399,7 @@ h1 {
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
   padding-bottom: 0.4rem;
 }
 
@@ -449,6 +449,48 @@ h1 {
 
 .course-cta:hover {
   background: var(--background);
+  color: var(--text);
+}
+
+/* Instructor section */
+.instructor-section {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+
+  align-items: center;
+}
+
+.instructor-photo {
+  width: 100%;
+  border-radius: 0px;
+}
+
+.instructor-quote {
+  margin: 0;
+
+  padding-top: 0rem;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--border);
+
+  font-size: 0.92rem;
+  font-style: normal;
+}
+
+.instructor-quote p {
+  margin-top: 0;
+}
+
+.instructor-link {
+  margin-top: 1.25rem;
+}
+
+.instructor-link a {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.instructor-link a:hover {
   color: var(--text);
 }
 
@@ -662,5 +704,13 @@ footer {
     gap: 1rem;
   }  
 
+  .instructor-section {
+  grid-template-columns: 1fr;
+  }
+
+  .instructor-photo {
+    max-width: 220px;
+    margin: 0 auto;
+  }
 }
 
