@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"news">;
+  compact?: boolean;
+}
+
+const {
+    entry,
+    compact = false,
+} = Astro.props as Props;
+
+const kindLabels = {
+  course: "Curso",
+  tutorial: "Tutorial",
+  figure: "Figura",
+  resource: "Recurso",
+  instagram: "Instagram",
+  website: "Sitio web",
+} as const;
+
+const { Content } = await render(entry);
+---
+
+<article class="news-entry">
+
+  <div class="news-date">
+    {entry.data.date.toLocaleDateString("es-MX", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })}
+  </div>
+
+  <h3 class="news-title">
+    {entry.data.title}
+  </h3>
+
+    <div class="news-meta">
+
+    <span class="news-kind">
+        {kindLabels[entry.data.kind]}
+    </span>
+
+    <span class="news-tags">
+        {entry.data.tags.join(" · ")}
+    </span>
+
+    </div>
+
+  <div class="news-body">
+    {!compact && <Content />}
+  </div>
+
+  <a
+    href={entry.data.link}
+    class="news-link"
+  >
+    {entry.data.linkLabel}
+  </a>
+
+</article>

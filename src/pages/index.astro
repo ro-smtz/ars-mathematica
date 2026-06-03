@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+import NewsCard from "../components/NewsCard.astro";
 import { asset } from "../utils/asset.ts";
 import { getCollection } from "astro:content";
 
@@ -10,6 +11,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const featuredFigures = (await getCollection("figures")).filter(
   (f) => f.data.featured === true
 );
+
+const news = await getCollection("news");
+
+news.sort(
+  (a, b) =>
+    b.data.date.getTime() -
+    a.data.date.getTime()
+);
+
+const latestNews = news.slice(0, 5);
 ---
 
 <BaseLayout title="Ars Mathematica">
@@ -41,9 +52,32 @@ const featuredFigures = (await getCollection("figures")).filter(
         Aquí encontrarás cursos, tutoriales y recursos para aprender a comunicar
         ciencia con precisión y elegancia, usando LaTeX como herramienta principal.
       </p>
-    </section>
-
+    </section>    
   </main>
+
+  <section class="news-home">
+
+    <h2 class="section-title">
+      Novedades recientes
+    </h2>
+
+    {
+      latestNews.map((entry) => (
+        <NewsCard
+          entry={entry}
+          compact={true}
+        />
+      ))
+    }
+
+    <a
+      href={`${base}/noticias`}
+      class="ver-todas"
+    >
+      Ver todas las novedades →
+    </a>
+
+  </section>
 
   <section class="container features">
     <FeatureCard

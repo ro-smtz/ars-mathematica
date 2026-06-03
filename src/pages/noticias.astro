@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
+import NewsCard from "../components/NewsCard.astro";
 
 import { getCollection } from "astro:content";
 
@@ -21,25 +22,9 @@ news.sort(
 
     <h1>Noticias</h1>
 
-    {
-      news.map((entry) => (
-        <article>
-
-          <p>
-            {entry.data.date.toLocaleDateString("es-MX")}
-          </p>
-
-          <h2>{entry.data.title}</h2>
-
-          <p>
-            {entry.data.kind}
-            {" · "}
-            {entry.data.tags.join(" · ")}
-          </p>
-
-        </article>
-      ))
-    }
+    {news.map((entry) => (
+      <NewsCard entry={entry} />
+    ))}
 
   </main>
 
