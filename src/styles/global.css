@@ -618,8 +618,9 @@ blockquote {
 /* ─── Noticias ───────────────────────────── */
 
 .news-home {
-  padding: 1.25rem 0;
-  padding-bottom: 5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
 }
 
 .news-entry {
@@ -679,7 +680,6 @@ blockquote {
   display: inline-block;
   margin-top: 0.5rem;
 
-  font-weight: 500;
   color: var(--text);
 }
 

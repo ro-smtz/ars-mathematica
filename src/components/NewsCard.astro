@@ -2,6 +2,8 @@
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 interface Props {
   entry: CollectionEntry<"news">;
   compact?: boolean;
@@ -55,7 +57,7 @@ const { Content } = await render(entry);
   </div>
 
   <a
-    href={entry.data.link}
+    href={`${base}${entry.data.link}`}
     class="news-link"
   >
     {entry.data.linkLabel}
