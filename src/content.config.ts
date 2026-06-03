@@ -61,9 +61,36 @@ const tutorials = defineCollection({
   }),
 });
 
+const news = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/news" }),
+
+  schema: z.object({
+    title: z.string(),
+
+    date: z.coerce.date(),
+
+    kind: z.enum([
+      "course",
+      "tutorial",
+      "resource",
+      "instagram",
+      "website",
+    ]),
+
+    tags: z.array(z.string()).default([]),
+
+    link: z.string(),
+
+    linkLabel: z.string(),
+
+    featured: z.boolean().optional(),
+  }),
+});
+
 export const collections = { 
   courses,
   figures,
   tutorials,
   pages,
+  news,
 };

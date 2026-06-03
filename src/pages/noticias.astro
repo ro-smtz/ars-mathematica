@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+
+import { getCollection } from "astro:content";
+
+const news = await getCollection("news");
+
+news.sort(
+  (a, b) =>
+    b.data.date.getTime() -
+    a.data.date.getTime()
+);
+---
+
+<BaseLayout title="Noticias">
+
+  <Header />
+
+  <main class="container page">
+
+    <h1>Noticias</h1>
+
+    {
+      news.map((entry) => (
+        <article>
+
+          <p>
+            {entry.data.date.toLocaleDateString("es-MX")}
+          </p>
+
+          <h2>{entry.data.title}</h2>
+
+          <p>
+            {entry.data.kind}
+            {" · "}
+            {entry.data.tags.join(" · ")}
+          </p>
+
+        </article>
+      ))
+    }
+
+  </main>
+
+</BaseLayout>

@@ -35,14 +35,32 @@ const featuredFigures = (await getCollection("figures")).filter(
       Non eruditis, sed erudiendis.
     </p>
 
+    <section class="container manifiesto">
+      <p>
+        ¡Bienvenidos al sitio oficial del projecto Ars Mathematica!
+        Aquí encontrarás cursos, tutoriales y recursos para aprender a comunicar
+        ciencia con precisión y elegancia, usando LaTeX como herramienta principal.
+      </p>
+    </section>
+
   </main>
 
-  <section class="container manifiesto">
-    <p>
-      ¡Bienvenidos al sitio oficial del projecto Ars Mathematica!
-      Aquí encontrarás cursos, tutoriales y recursos para aprender a comunicar
-      ciencia con precisión y elegancia, usando LaTeX como herramienta principal.
-    </p>
+  <section class="container features">
+    <FeatureCard
+      title="Cursos"
+      href={`${base}/cursos`}
+      description="Formación especializada en TikZ, PGFPlots y escritura científica con LaTeX."
+    />
+    <FeatureCard
+      title="Tutoriales"
+      href={`${base}/tutoriales`}
+      description="Guías paso a paso sobre visualización científica, LaTeX y comunicación téc nica."
+    />
+    <FeatureCard
+      title="Recursos"
+      href={`${base}/recursos`}
+      description="Material adicional para profundizar en visualización científica y LaTeX."
+    />
   </section>
 
   {featuredFigures.length > 0 && (
@@ -72,23 +90,5 @@ const featuredFigures = (await getCollection("figures")).filter(
       </a>
     </section>
   )}
-
-  <section class="container features">
-    <FeatureCard
-      title="Cursos"
-      href={`${base}/cursos`}
-      description="Formación especializada en TikZ, PGFPlots y escritura científica con LaTeX."
-    />
-    <FeatureCard
-      title="Tutoriales"
-      href={`${base}/tutoriales`}
-      description="Guías paso a paso sobre visualización científica, LaTeX y comunicación téc nica."
-    />
-    <FeatureCard
-      title="Figuras"
-      href={`${base}/figuras`}
-      description="Galería seleccionada de diagramas, gráficas e ilustraciones científicas."
-    />
-  </section>
 
 </BaseLayout>
