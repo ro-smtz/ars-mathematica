@@ -620,7 +620,7 @@ blockquote {
 .news-home {
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 
 .news-entry {
@@ -826,6 +826,22 @@ footer {
 
   .about-photo {
     order: -1;
+  }
+
+   .news-home {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .news-entry {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .news-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 
