@@ -97,8 +97,75 @@ const latestNews = news.slice(0, 5);
   </section>
 
   {featuredFigures.length > 0 && (
-    <section class="container figuras-home">
-      <h2 class="section-title">Ejemplos destacados</h2>
+    <section class="container instagram-home">
+
+      <h2 class="section-title">
+        Ars Mathematica en Instagram
+      </h2>
+
+      <div class="instagram-profile">
+
+        <div class="instagram-avatar-column">
+          <img
+            src={asset("/images/profile_arsmathematica.png")}
+            alt="Ars Mathematica"
+            class="instagram-avatar"
+          />
+        </div>
+
+        <div class="instagram-info-column">
+
+          <h3 class="instagram-handle">
+            @ars_mathematica
+          </h3>
+
+          <h4 class="instagram-name">
+            Rodrigo Sánchez | Visualización científica
+          </h4>
+
+          <div class="instagram-stats">
+
+            <div class="instagram-stat">
+              <strong>170</strong>
+              <span>Publicaciones</span>
+            </div>
+
+            <div class="instagram-stat">
+              <strong>72K</strong>
+              <span>Seguidores</span>
+            </div>
+
+            <div class="instagram-stat">
+              <strong>254</strong>
+              <span>Seguidos</span>
+            </div>
+
+          </div>
+
+          <p class="instagram-bio">
+            Física · Matemáticas · Química
+            <br />
+            Divulgación científica mediante ilustraciones.
+            <br />
+            TikZ · LaTeX
+          </p>
+        </div>
+
+      </div>
+
+      <a
+        href="https://instagram.com/ars_mathematica"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="course-cta"
+      >
+        Ver perfil ↗
+      </a>
+
+      <h3 class="instagram-subtitle">
+        Publicaciones destacadas
+      </h3>
+
       <div class="figuras-grid">
         {featuredFigures.map((fig) => (
           <div class="figura-card">
@@ -118,9 +185,16 @@ const latestNews = news.slice(0, 5);
           </div>
         ))}
       </div>
-      <a href={`${base}/figuras`} class="ver-todas">
-        Ver todas las figuras →
+
+      <a
+        href="https://instagram.com/ars_mathematica"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ver-todas"
+      >
+        Ver perfil completo →
       </a>
+
     </section>
   )}
 

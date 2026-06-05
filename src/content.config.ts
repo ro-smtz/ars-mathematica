@@ -47,7 +47,10 @@ const figures = defineCollection({
     image: z.string(),
     tags: z.array(z.string()).optional(),
     featured: z.boolean().optional(),
+    
     instagram: z.string().url().optional(),
+    github: z.string().url().optional(),
+    tutorial: z.string().optional(),
   }),
 });
 
