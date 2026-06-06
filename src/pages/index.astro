@@ -55,6 +55,24 @@ const latestNews = news.slice(0, 5);
     </section>    
   </main>
 
+  <section class="container features">
+    <FeatureCard
+      title="Cursos"
+      href={`${base}/cursos`}
+      description="Formación especializada en TikZ, PGFPlots y escritura científica con LaTeX."
+    />
+    <FeatureCard
+      title="Tutoriales"
+      href={`${base}/tutoriales`}
+      description="Guías paso a paso sobre visualización científica con TikZ y PGFplots."
+    />
+    <FeatureCard
+      title="Recursos"
+      href={`${base}/recursos`}
+      description="Material de utilidad para aprender LaTeX, física y matemáticas."
+    />
+  </section>
+
   <section class="news-home">
 
     <h2 class="section-title">
@@ -78,24 +96,6 @@ const latestNews = news.slice(0, 5);
 
   </section>
 
-  <section class="container features">
-    <FeatureCard
-      title="Cursos"
-      href={`${base}/cursos`}
-      description="Formación especializada en TikZ, PGFPlots y escritura científica con LaTeX."
-    />
-    <FeatureCard
-      title="Tutoriales"
-      href={`${base}/tutoriales`}
-      description="Guías paso a paso sobre visualización científica con TikZ y PGFplots."
-    />
-    <FeatureCard
-      title="Recursos"
-      href={`${base}/recursos`}
-      description="Material de utilidad para aprender LaTeX, física y matemáticas."
-    />
-  </section>
-
   {featuredFigures.length > 0 && (
     <section class="container instagram-home">
 
@@ -106,22 +106,40 @@ const latestNews = news.slice(0, 5);
       <div class="instagram-profile">
 
         <div class="instagram-avatar-column">
-          <img
-            src={asset("/images/rodrigo-profile-picture.png")}
-            alt="Ars Mathematica"
-            class="instagram-avatar"
-          />
+          <a
+            href="https://instagram.com/ars_mathematica"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={asset("/images/rodrigo-profile-picture.png")}
+              alt="Ars Mathematica"
+              class="instagram-avatar"
+            />
+          </a>
         </div>
 
         <div class="instagram-info-column">
 
-          <h3 class="instagram-handle">
-            @ars_mathematica
-          </h3>
-
-          <h4 class="instagram-name">
-            Rodrigo Sánchez | Visualización científica
-          </h4>
+          <a
+            href="https://instagram.com/ars_mathematica"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3 class="instagram-handle">
+              @ars_mathematica
+            </h3>
+          </a>
+          
+          <a
+            href="https://instagram.com/ars_mathematica"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h4 class="instagram-name">
+              Rodrigo Sánchez | Visualización científica
+            </h4>
+          </a>
 
           <div class="instagram-stats">
 
@@ -131,12 +149,12 @@ const latestNews = news.slice(0, 5);
             </div>
 
             <div class="instagram-stat">
-              <strong>72K</strong>
+              <strong>72.4K</strong>
               <span>Seguidores</span>
             </div>
 
             <div class="instagram-stat">
-              <strong>254</strong>
+              <strong>261</strong>
               <span>Seguidos</span>
             </div>
 
@@ -150,17 +168,24 @@ const latestNews = news.slice(0, 5);
             TikZ · LaTeX
           </p>
         </div>
-
       </div>
 
-      <a
-        href="https://instagram.com/ars_mathematica"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="course-cta"
-      >
-        Ver perfil ↗
-      </a>
+      <p>
+        Ars Mathematica nació durante los últimos meses de mi licenciatura en física.
+        Mientras escribía mi tesis, me di cuenta de que las figuras que utilizaba provenían de programas distintos y tenían estilos gráficos completamente diferentes entre sí.
+        Aunque el contenido era correcto, sentía que la presentación visual no reflejaba el cuidado que había puesto en el resto del trabajo.  
+      </p>
+
+      <p>
+        Buscando una solución descubrí la paquetería de TikZ: eso cambió completamente mi manera de construir ilustraciones científicas.
+        Lo que comenzó como una herramienta para mejorar mis documentos terminó convirtiéndose en un pasatiempo.
+        Poco tiempo después abrí una pequeña cuenta de Instagram para compartir algunos de esos dibujos y registrar mi progreso.
+      </p>
+
+      <p>
+        Nunca imaginé que ese proyecto personal crecería hasta convertirse en una comunidad de miles de personas interesadas en la ciencia y en la visualización científica.
+        Hoy Ars Mathematica es al mismo tiempo un espacio de divulgación científica en español y una plataforma desde la que comparto un poco de lo que sé sobre TikZ, PGFplots y LaTeX.
+      </p>
 
       <h3 class="instagram-subtitle">
         Publicaciones destacadas

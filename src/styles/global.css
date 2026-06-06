@@ -115,8 +115,8 @@ h1 {
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding-bottom: 6rem;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 /*  Section titles  */
@@ -689,6 +689,10 @@ blockquote {
 
 .instagram-profile {
 
+  max-width: 570px;
+  margin-left: auto;
+  margin-right: auto;
+
   display: grid;
   grid-template-columns: 120px 1fr;
 
@@ -700,7 +704,7 @@ blockquote {
   border-radius: 12px;
 
   padding: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .instagram-avatar-column {
@@ -771,6 +775,7 @@ blockquote {
   max-width: 650px;
   line-height: 1.75;
   font-size: 0.95rem;
+  margin-bottom: 0;
 }
 
 /* ─── Header ─────────────────────────────────────────── */
