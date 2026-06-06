@@ -716,6 +716,7 @@ blockquote {
   border-radius: 50%;
 
   object-fit: cover;
+  object-position: center 45%;
 
   border: 2px solid var(--border);
 }
@@ -954,6 +955,7 @@ footer {
   .instagram-stats {
 
     justify-content: center;
+    gap: 1.75rem;
   }
 }
 
