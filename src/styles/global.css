@@ -716,7 +716,7 @@ blockquote {
   border-radius: 50%;
 
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center center;
 
   border: 2px solid var(--border);
 }
