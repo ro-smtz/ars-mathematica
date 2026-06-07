@@ -154,8 +154,16 @@ const isArchived = course.data.status === "archived";
               <h3>{plan.title}</h3>
 
               <div class="pricing-price">
-                {plan.price}
+                ${plan.price_mxn} MXN
               </div>
+              
+              {
+                plan.price_usd && (
+                  <div class="pricing-price-usd">
+                    ≈ {plan.price_usd} USD
+                  </div>
+                )
+              }
 
               <p>{plan.description}</p>
 
@@ -163,6 +171,11 @@ const isArchived = course.data.status === "archived";
           ))}
 
         </div>
+
+        <p class="pricing-note">
+          Los precios en USD son aproximados y se muestran únicamente como referencia.
+          Si tienes alguna duda o alguna dificultad para cubrir el costo de inscripción, no dudes en contactarme.
+        </p>
 
       </section>
     )}

@@ -24,15 +24,18 @@ cta_link: "https://wa.me/message/WVD4J6ZO2VM5O1"
 
 pricing:
   - title: "General"
-    price: "$700 MXN"
+    price_mxn: 700
+    price_usd: 40
     description: "Participación individual."
 
   - title: "Estudiante"
-    price: "$400 MXN"
+    price_mxn: 400
+    price_usd: 23
     description: "Requiere comprobante vigente."
 
   - title: "Pareja de estudiantes"
-    price: "$700 MXN"
+    price_mxn: 700
+    price_usd: 40
     description: "Precio total por pareja."
 ---
 
@@ -86,7 +89,9 @@ A lo largo de la semana construiremos paso a paso un documento completo, desde l
 
 ## Participación internacional
 
-> Dado que los cursos son en línea, es posible participar desde cualquier país.
+Dado que los cursos son en línea, es posible participar desde cualquier país.
+Estudiantes de varios países de Latinoamérica han participado en ediciones anteriores de los cursos de Ars Mathematica.
+Además, debido a que la inscripción incluye acceso a todas las grabaciones del curso, es posible atenderlo de manera asíncrona.
 
 La equivalencia del horario en algunos países es la siguiente
 
@@ -100,5 +105,3 @@ La equivalencia del horario en algunos países es la siguiente
 | Buenos Aires, Argentina | (UTC-3) | 10:30 PM |
 | São Paulo, Brasil | (UTC-3) | 10:30 PM |
 | Madrid, España | (UTC+1) | 2:30 AM (+1 día) |
-
-> Este curso está dirigido a estudiantes e investigadores que desean incorporar LaTeX de manera práctica en su trabajo académico cotidiano.

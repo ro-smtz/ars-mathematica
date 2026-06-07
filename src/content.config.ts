@@ -32,7 +32,8 @@ const courses = defineCollection({
     pricing: z.array(
       z.object({
         title: z.string(),
-        price: z.string(),
+        price_mxn: z.number(),
+        price_usd: z.number(),
         description: z.string(),
       })
     ).optional(),

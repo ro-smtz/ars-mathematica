@@ -552,8 +552,9 @@ blockquote {
 .pricing-price {
   font-size: 1.75rem;
   font-weight: 600;
-
-  margin-bottom: 1rem;
+  
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 .pricing-card p {
@@ -571,6 +572,28 @@ blockquote {
 .payment-section,
 .enrollment-section {
   margin-top: 4rem;
+}
+
+.pricing-price-usd {
+
+  margin-top: 0.25rem;
+
+  font-size: 0.9rem;
+
+  color: var(--muted);
+
+  font-weight: 400;
+}
+
+.pricing-note {
+
+  margin-top: 1rem;
+
+  font-size: 0.9rem;
+
+  color: var(--muted);
+
+  font-style: italic;
 }
 
 /* ─── En construcción ────────────────────────────────── */
