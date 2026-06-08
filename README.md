@@ -1,126 +1,68 @@
 # Ars Mathematica
 
-Official website of **Ars Mathematica**, a project dedicated to scientific visualization, technical communication, and education with LaTeX.
+A science communication project dedicated to the visual representation of physics, mathematics, and chemistry through LaTeX, TikZ, and PGFPlots. Founded in 2019, Ars Mathematica has grown to 70 K+ followers on Instagram and now hosts a full educational website with courses, figure galleries, and tutorials — all in Spanish.
 
-The website contains:
+> *Non docentibus, sed discentibus.*  
+> *Non eruditis, sed erudiendis.*
 
-* Courses on LaTeX, TikZ, PGFPlots, and scientific writing.
-* Tutorials and learning resources.
-* A gallery of scientific figures and visualizations.
-* Information about the project and its author.
-
-The site is built with Astro and deployed through GitHub Pages.
+**Live site** → [ro-smtz.github.io/ars-mathematica](https://ro-smtz.github.io/ars-mathematica/)  
+**Instagram** → [@ars_mathematica](https://www.instagram.com/ars_mathematica/)  
+**Author** → [Rodrigo Sánchez-Martínez](https://orcid.org/0000-0002-5713-3053)
 
 ---
 
-## Technology
+## Contents
 
-* Astro
-* Markdown content collections
-* HTML & CSS
-* GitHub Pages
-
-The project intentionally avoids unnecessary complexity and JavaScript frameworks whenever possible. Most pages are generated statically from Markdown content.
+- **Courses** — structured learning paths on LaTeX, TikZ, PGFPlots, and scientific writing
+- **Tutorials** — focused guides on specific techniques and workflows
+- **Figure gallery** — a curated collection of scientific figures with source code
+- **Sobre mí** — about the project and its author
 
 ---
 
-## Project Structure
+## Built with
+
+- [Astro v6](https://astro.build) — static site generation with content collections
+- TikZ and PGFPlots — all figures compiled with XeLaTeX
+- GitHub Pages + GitHub Actions — automated deployment
+
+The project intentionally avoids unnecessary complexity. Pages are generated statically from Markdown content collections; JavaScript is used only where interaction is essential.
+
+---
+
+## Project structure
 
 ```text
 src/
 ├── components/      # Reusable UI components
-├── content/         # Markdown content collections
-│   ├── courses/
-│   ├── tutorials/
-│   ├── figures/
-│   └── resources/
+├── content/         # Markdown content collections (courses, figures, tutorials)
 ├── layouts/         # Page layouts
 ├── pages/           # Site routes
-├── styles/          # Global styles
+├── styles/          # Global styles (centralized in global.css)
 └── utils/           # Utility functions
+public/              # Static assets (images, figures)
 ```
-
-Static assets such as images are stored in:
-
-```text
-public/
-```
-
----
-
-## Course Content
-
-Courses are written as Markdown files with frontmatter metadata.
-
-Example:
-
-```yaml
----
-title: "Escritura de Artículos Científicos con LaTeX"
-code: "T1"
-status: "open"
-level: "Inicial"
-
-dates: "22–26 de junio de 2026"
-schedule: "7:30 PM – 9:00 PM (UTC-6)"
-modality: "En línea · Zoom"
-
-summary: "Aprende a redactar, estructurar y preparar tu primer artículo científico utilizando LaTeX como una herramienta profesional de trabajo."
----
-```
-
-The `status` field controls how the course page is displayed:
-
-| Status        | Description                                                     |
-| ------------- | --------------------------------------------------------------- |
-| `open`        | Enrollment information is displayed.                            |
-| `coming-soon` | Course description is available but enrollment is not yet open. |
-| `archived`    | Historical or inactive course.                                  |
 
 ---
 
 ## Development
 
-Install dependencies:
-
 ```bash
-npm install
+npm install       # Install dependencies
+npm run dev       # Local development server
+npm run build     # Production build
+npm run preview   # Preview production build
 ```
 
-Run the local development server:
+Deploy by pushing to `main` — GitHub Actions handles the rest.
 
 ```bash
-npm run dev
-```
-
-Build the production version:
-
-```bash
-npm run build
-```
-
-Preview the generated site:
-
-```bash
-npm run preview
+git add . && git commit -m "message" && git push
 ```
 
 ---
 
-## Deployment
+## Related
 
-The site is automatically deployed through GitHub Pages.
-
-Production URL:
-
-https://ro-smtz.github.io/ars-mathematica/
-
----
-
-## About
-
-Ars Mathematica was created by Rodrigo Sánchez-Martínez as a long-term project for teaching LaTeX, scientific visualization, and technical communication through practical academic workflows.
-
-> Non docentibus, sed discentibus.
->
-> Non eruditis, sed erudiendis.
+- [`ro-smtz/research`](https://github.com/ro-smtz/research) — research code and LaTeX templates from my work in ultrafast optics
+- [ORCID 0000-0002-5713-3053](https://orcid.org/0000-0002-5713-3053) — publication record
