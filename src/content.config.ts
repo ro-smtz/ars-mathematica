@@ -77,7 +77,9 @@ const news = defineCollection({
       "course",
       "tutorial",
       "resource",
+      "publication",
       "instagram",
+      "github",
       "website",
     ]),
 

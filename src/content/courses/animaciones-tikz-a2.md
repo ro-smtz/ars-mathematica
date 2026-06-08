@@ -10,5 +10,4 @@ summary: "Aprende técnicas avanzadas de TikZ para crear animaciones científica
 
 status: "archived"
 featured: false
-
 ---

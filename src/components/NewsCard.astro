@@ -14,14 +14,18 @@ const {
     compact = false,
 } = Astro.props as Props;
 
-const kindLabels = {
+const kindLabels: Record<
+  CollectionEntry<"news">["data"]["kind"],
+  string
+> = {
   course: "Curso",
   tutorial: "Tutorial",
-  figure: "Figura",
   resource: "Recurso",
+  publication: "Publicación",
   instagram: "Instagram",
   website: "Sitio web",
-} as const;
+  github: "GitHub",
+};
 
 const { Content } = await render(entry);
 ---
@@ -57,7 +61,11 @@ const { Content } = await render(entry);
   </div>
 
   <a
-    href={`${base}${entry.data.link}`}
+    href={
+      entry.data.link.startsWith("http")
+        ? entry.data.link
+        : `${base}${entry.data.link}`
+    }
     class="news-link"
   >
     {entry.data.linkLabel}
