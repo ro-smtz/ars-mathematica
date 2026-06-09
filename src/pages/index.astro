@@ -96,7 +96,6 @@ const latestNews = news.slice(0, 5);
 
   </section>
 
-  {featuredFigures.length > 0 && (
     <section class="container instagram-home">
 
       <h2 class="section-title">
@@ -187,29 +186,31 @@ const latestNews = news.slice(0, 5);
         Hoy Ars Mathematica es al mismo tiempo un espacio de divulgación científica en español y una plataforma desde la que comparto un poco de lo que sé sobre TikZ, PGFplots y LaTeX.
       </p>
 
-      <h3 class="instagram-subtitle">
-        Publicaciones destacadas
-      </h3>
+      {featuredFigures.length > 0 && (
+        <h3 class="instagram-subtitle">
+          Publicaciones destacadas
+        </h3>
 
-      <div class="figuras-grid">
-        {featuredFigures.map((fig) => (
-          <div class="figura-card">
-            <img src={asset(fig.data.image)} alt={fig.data.title} />
-            <p class="figura-title">{fig.data.title}</p>
-            <p class="figura-desc">{fig.data.description}</p>
-            {fig.data.instagram && (
-              <a
-                href={fig.data.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="instagram-link"
-              >
-                Ver en Instagram ↗
-              </a>
-            )}
-          </div>
-        ))}
-      </div>
+        <div class="figuras-grid">
+          {featuredFigures.map((fig) => (
+            <div class="figura-card">
+              <img src={asset(fig.data.image)} alt={fig.data.title} />
+              <p class="figura-title">{fig.data.title}</p>
+              <p class="figura-desc">{fig.data.description}</p>
+              {fig.data.instagram && (
+                <a
+                  href={fig.data.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="instagram-link"
+                >
+                  Ver en Instagram ↗
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
 
       <a
         href="https://instagram.com/ars_mathematica"
@@ -221,6 +222,5 @@ const latestNews = news.slice(0, 5);
       </a>
 
     </section>
-  )}
 
 </BaseLayout>

@@ -55,6 +55,31 @@ const figures = defineCollection({
   }),
 });
 
+const resources = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/resources" }),
+
+  schema: z.object({
+    title: z.string(),
+
+    description: z.string(),
+
+    image: z.string(),
+
+    category: z.enum([
+      "complete-code",
+      "template",
+      "publication",
+      "supplement",
+    ]),
+
+    tags: z.array(z.string()).default([]),
+
+    github: z.string().url(),
+
+    featured: z.boolean().optional(),
+  }),
+});
+
 const tutorials = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/tutorials" }),
   schema: z.object({
@@ -99,4 +124,5 @@ export const collections = {
   tutorials,
   pages,
   news,
+  resources,
 };
