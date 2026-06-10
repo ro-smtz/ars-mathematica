@@ -19,12 +19,6 @@ featured: true
 ---
 
 Código fuente completo de la Figura 2 del artículo *A New Visual Approach to Pendulum Period Determination*.
-
-El repositorio incluye:
-
-* Manuscrito del artículo.
-* Archivo PDF de la figura.
-* Código fuente TikZ completamente comentado.
-* Información bibliográfica asociada.
+En el repositorio también se incluye el manuscrito completo del artículo.
 
 Este recurso forma parte del repositorio de investigación utilizado para compartir material científico reproducible y ejemplos avanzados de visualización con LaTeX y TikZ.
