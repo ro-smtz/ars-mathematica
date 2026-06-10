@@ -1,0 +1,56 @@
+---
+import { asset } from "../utils/asset";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+  label: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  tags,
+  link,
+  label,
+} = Astro.props;
+---
+
+<article class="resource-card">
+
+  <img
+    src={asset(image)}
+    alt={title}
+    class="resource-image"
+  />
+
+  <div class="resource-content">
+
+    <h2 class="resource-title">
+      {title}
+    </h2>
+
+    <p class="resource-description">
+      {description}
+    </p>
+
+    <p class="resource-tags">
+      {tags.join(" · ")}
+    </p>
+
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="resource-link"
+    >
+      {label}
+    </a>
+
+  </div>
+
+</article>

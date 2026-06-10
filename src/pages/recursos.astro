@@ -1,12 +1,118 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
-import EnConstruccion from "../components/EnConstruccion.astro";
+import ResourceCard from "../components/ResourceCard.astro";
+
+import { getCollection } from "astro:content";
+
+const resources = await getCollection("resources");
+
+const codes = resources.filter(
+  (resource) => resource.data.category === "code"
+);
+
+const templates = resources.filter(
+  (resource) => resource.data.category === "template"
+);
+
+const notes = resources.filter(
+  (resource) => resource.data.category === "notes"
+);
+
+const supplements = resources.filter(
+  (resource) => resource.data.category === "supplement"
+);
 ---
 
 <BaseLayout title="Recursos — Ars Mathematica">
+
   <Header />
+
   <main class="container page">
-    <EnConstruccion section="recursos, referencias y material descargable." />
+
+    <h1>Recursos</h1>
+
+    <p class="page-intro">
+      Material descargable, código fuente y recursos utilizados
+      en proyectos científicos y educativos.
+    </p>
+
+    <h2>Códigos completos</h2>
+
+    {
+      codes.length > 0 ? (
+        codes.map((resource) => (
+          <ResourceCard
+            title={resource.data.title}
+            description={resource.data.description}
+            image={resource.data.image}
+            tags={resource.data.tags}
+            link={resource.data.link}
+            label={resource.data.label}
+          />
+        ))
+      ) : (
+        <p>En construcción...</p>
+      )
+    }
+
+    <h2>Plantillas</h2>
+
+    {
+      templates.length > 0 ? (
+        templates.map((resource) => (
+          <ResourceCard
+            title={resource.data.title}
+            description={resource.data.description}
+            image={resource.data.image}
+            tags={resource.data.tags}
+            link={resource.data.link}
+            label={resource.data.label}
+          />
+        ))
+      ) : (
+        <p>En construcción...</p>
+      )
+    }
+
+    <h2>Notas</h2>
+
+    {
+      notes.length > 0 ? (
+        notes.map((resource) => (
+          <ResourceCard
+            title={resource.data.title}
+            description={resource.data.description}
+            image={resource.data.image}
+            tags={resource.data.tags}
+            link={resource.data.link}
+            label={resource.data.label}
+          />
+        ))
+      ) : (
+        <p>En construcción...</p>
+      )
+    }
+
+    <h2>Material complementario</h2>
+
+    {
+      supplements.length > 0 ? (
+        supplements.map((resource) => (
+          <ResourceCard
+            title={resource.data.title}
+            description={resource.data.description}
+            image={resource.data.image}
+            tags={resource.data.tags}
+            link={resource.data.link}
+            label={resource.data.label}
+          />
+        ))
+      ) : (
+        <p>En construcción...</p>
+      )
+    }
+
   </main>
+
 </BaseLayout>

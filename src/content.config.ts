@@ -66,15 +66,17 @@ const resources = defineCollection({
     image: z.string(),
 
     category: z.enum([
-      "complete-code",
+      "code",
       "template",
+      "notes",
       "publication",
       "supplement",
     ]),
 
     tags: z.array(z.string()).default([]),
 
-    github: z.string().url(),
+    link: z.string().url(),
+    label: z.string(),
 
     featured: z.boolean().optional(),
   }),
