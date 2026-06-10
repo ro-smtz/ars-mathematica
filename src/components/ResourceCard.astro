@@ -22,26 +22,16 @@ const {
 
 <article class="resource-card">
 
-  <img
-    src={asset(image)}
-    alt={title}
-    class="resource-image"
-  />
-
   <div class="resource-content">
 
-    <h2 class="resource-title">
-      {title}
-    </h2>
-
-    <p class="resource-description">
-      {description}
-    </p>
-
-    <p class="resource-tags">
-      {tags.join(" · ")}
-    </p>
-
+    <img
+      src={asset(image)}
+      alt={title}
+      class="resource-image"
+    />
+    <p class="resource-title">{title}</p>
+    <p class="resource-description">{description}</p>
+    <p class="resource-tags">{tags.join(" · ")}</p>
     <a
       href={link}
       target="_blank"
