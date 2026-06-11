@@ -1,0 +1,58 @@
+---
+import { asset } from "../utils/asset";
+
+interface Props {
+  title: string;
+  image: string;
+  date: string | Date;
+  tags: string[];
+  link: string;
+  label: string;
+}
+
+const {
+  title,
+  image,
+  date, 
+  tags,
+  link,
+  label,
+} = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString("es-MX", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+---
+
+<article class="code-card">
+
+  <p class="code-title">
+    {title}
+  </p>
+
+  <p class="code-date">
+    {formattedDate}
+  </p>
+
+  <img
+    src={asset(image)}
+    alt={title}
+    class="code-image"
+  />
+
+  <p class="code-tags">
+    {tags.join(" · ")}
+  </p>
+
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="code-link"
+  >
+    {label}
+  </a>
+
+</article>
