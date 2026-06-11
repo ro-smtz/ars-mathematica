@@ -10,7 +10,7 @@ tags:
     - Equation
     - Mathematics
 
-link: "https://github.com/ro-smtz/ars-mathematica-content/blob/main/figures/260609-feynman-diagram-compton/figure.tex"
+link: "https://github.com/ro-smtz/ars-mathematica-content/blob/main/figures/2606011-fourier-transform-eq/figure.tex"
 label: "Ver código ↗"
 
 featured: true
