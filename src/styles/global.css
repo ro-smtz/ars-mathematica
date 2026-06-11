@@ -500,6 +500,30 @@ blockquote {
   color: var(--text);
 }
 
+/* Resources: Codes */
+.resource-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  margin: 0rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.resource-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-stat strong {
+  font-size: 1.1rem;
+}
+
+.resource-stat span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 /* Tables */
 
 .course-content table {
@@ -863,6 +887,7 @@ nav a {
   font-size: 1rem;
   font-weight: 600;
 
+  margin-top: 0rem;
   margin-bottom: 0.15rem;
 }
 
@@ -1046,15 +1071,6 @@ footer {
 
     justify-content: center;
     gap: 1.75rem;
-  }
-
-  .resource-card {
-    grid-template-columns: 30% 1fr;
-    align-items: start;
-  }
-
-  .resource-image {
-    aspect-ratio: 1 / 1;
   }
 }
 

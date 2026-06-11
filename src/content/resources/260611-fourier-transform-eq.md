@@ -1,14 +1,14 @@
 ---
-title: "Dispersión Compton"
-date: 2026-06-10
-image: "/images/resources/260609-feynman-diagram-compton.png"
+title: "Transformada de Fourier"
+date: 2026-06-11
+image: "/images/resources/2606011-fourier-transform-eq.png"
 
 category: "code"
 
 tags:
     - TikZ
-    - Feynman
-    - QED
+    - Equation
+    - Mathematics
 
 link: "https://github.com/ro-smtz/ars-mathematica-content/blob/main/figures/260609-feynman-diagram-compton/figure.tex"
 label: "Ver código ↗"

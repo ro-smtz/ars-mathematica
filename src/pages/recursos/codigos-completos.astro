@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import CodeCard from "../../components/CodeCard.astro";
+
+import { getCollection } from "astro:content";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const resources = await getCollection("resources");
+
+const codes = resources
+  .filter((resource) => resource.data.category === "code")
+  .sort(
+    (a, b) =>
+      new Date(b.data.date).getTime() -
+      new Date(a.data.date).getTime()
+  );
+
+const allTags = [
+  ...new Set(
+    codes.flatMap((code) => code.data.tags)
+  ),
+].sort();
+---
+
+<BaseLayout title="Códigos completos — Ars Mathematica">
+
+  <Header />
+
+  <main class="container page">
+
+    <a
+        href={`${base}/recursos`}
+        class="back-link"
+        >
+        ← Regresar a recursos
+    </a>
+
+    <h1>Códigos completos</h1>
+
+    <div class="resource-stats">
+
+        <div class="resource-stat">
+            <strong>{codes.length}</strong>
+            <span>
+            {codes.length === 1
+                ? "código disponible"
+                : "códigos disponibles"}
+            </span>
+        </div>
+
+        <div class="resource-stat">
+            <strong>{allTags.length}</strong>
+            <span>
+            {allTags.length === 1
+                ? "categoría"
+                : "categorías"}
+            </span>
+        </div>
+
+        <div class="resource-stat">
+            <strong>
+            {
+                new Date(codes[0].data.date).toLocaleDateString(
+                "es-MX",
+                {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                }
+                )
+            }
+            </strong>
+            <span>última actualización</span>
+        </div>
+    </div>
+
+    <div class="page-intro">
+        <p>
+            Aquí podrás encontrar códigos completos de algunos diagramas que he realizado con TikZ, PGFPlots y ChemFig.
+        </p>
+
+        <p>
+            <b>Todos aprendemos por imitación:</b> te invito a ver los códigos, descargarlos, estudiarlos y sobre todo, a modificarlos.
+            La mejor manera de aprender a utilizar TikZ es experimentar con los comandos y observar cómo cambian los resultados al alterar cada uno de ellos.
+        </p>
+        
+        <p>
+            Muchos de los recursos compartidos aquí nacieron como ejercicios personales, ejemplos para cursos o figuras para mi
+            <a href="https://www.instagram.com/ars_mathematica/" target="_blank"><b>página de Instagram</b></a>.
+            Espero que puedan servirte como punto de partida para tus propios dibujos, gráficas y diagramas.
+        </p>
+
+        <p> 
+            Y si en algún momento realizas una figura inspirada en alguno de estos códigos, no dudes en compartirla conmigo.
+            Me encantaría verla.
+        </p> 
+
+        <blockquote>
+            Nulla dies sine linea.
+        </blockquote>
+    </div>
+
+    <h3> Explorar por categorías </h3>
+    <div class="tags-cloud">
+        {
+            allTags.map((tag) => (
+            <span class="tag-pill">
+                {tag}
+            </span>
+            ))
+        }
+    </div>
+
+    <h2> Todos los códigos </h2>
+    <div class="codes-grid">
+    {
+        codes.length > 0 ? (
+        codes.map((resource) => (
+            <CodeCard
+            title={resource.data.title}
+            image={resource.data.image}
+            date={resource.data.date}
+            tags={resource.data.tags}
+            link={resource.data.link}
+            label={resource.data.label}
+            />
+        ))
+        ) : (
+        <p>En construcción...</p>
+        ) 
+    }
+    </div>
+
+  </main>
+
+</BaseLayout>

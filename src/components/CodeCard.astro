@@ -29,7 +29,13 @@ const formattedDate = new Date(date).toLocaleDateString("es-MX", {
 <article class="code-card">
 
   <p class="code-title">
-    {title}
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer" 
+    >
+      {title}
+    </a>
   </p>
 
   <p class="code-date">

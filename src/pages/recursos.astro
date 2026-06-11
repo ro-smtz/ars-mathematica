@@ -7,9 +7,14 @@ import { getCollection } from "astro:content";
 
 const resources = await getCollection("resources");
 
-const codes = resources.filter(
-  (resource) => resource.data.category === "code"
-);
+const codes = resources
+  .filter((resource) => resource.data.category === "code")
+  .sort(
+    (a, b) =>
+      new Date(b.data.date).getTime() -
+      new Date(a.data.date).getTime()
+  )
+  .slice(0,5);
 ---
 
 <BaseLayout title="Recursos — Ars Mathematica">
@@ -45,6 +50,13 @@ const codes = resources.filter(
         ) 
       }
     </div>
+
+    <a
+      href="/ars-mathematica/recursos/codigos-completos"
+      class="ver-todas"
+    >
+      Ver todos los códigos →
+    </a>
 
     <h2>Plantillas</h2>
 
