@@ -18,10 +18,15 @@ const codes = resources
   );
 
 const allTags = [
+  "Todos",
   ...new Set(
     codes.flatMap((code) => code.data.tags)
   ),
-].sort();
+].sort((a, b) => {
+  if (a === "Todos") return -1;
+  if (b === "Todos") return 1;
+  return a.localeCompare(b);
+});
 ---
 
 <BaseLayout title="Códigos completos — Ars Mathematica">
@@ -106,9 +111,12 @@ const allTags = [
     <div class="tags-cloud">
         {
             allTags.map((tag) => (
-            <span class="tag-pill">
+            <button
+                type="button"
+                class="tag-pill"
+            >
                 {tag}
-            </span>
+            </button>
             ))
         }
     </div>
