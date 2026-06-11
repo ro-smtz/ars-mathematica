@@ -8,7 +8,6 @@ category: "code"
 tags:
     - TikZ
     - Equation
-    - Mathematics
 
 link: "https://github.com/ro-smtz/ars-mathematica-content/blob/main/figures/2606011-fourier-transform-eq/figure.tex"
 label: "Ver código ↗"

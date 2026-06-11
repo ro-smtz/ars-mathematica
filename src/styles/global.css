@@ -917,6 +917,44 @@ nav a {
   border-color: var(--text);
 }
 
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tag-pill {
+  display: inline-block;
+
+  padding: 0.25rem 0.5rem;
+
+  border: 2px solid var(--border);
+  border-radius: 8px;
+
+  font-size: 0.9rem;
+  color: var(--muted);
+
+  background: transparent;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tag-pill.active {
+  color: var(--text);
+  border-color: var(--text);
+  cursor: default;
+}
+
+.tag-pill:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
 /* ─── Footer ─────────────────────────────────────────── */
 
 footer {
