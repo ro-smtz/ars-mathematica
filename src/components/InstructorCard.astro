@@ -1,0 +1,34 @@
+---
+import { asset } from "../utils/asset.ts";
+---
+
+<div class="course-content">
+  <h2>Acerca del instructor</h2>
+  <section class="instructor-section">
+
+    <img
+      src={asset("/images/rodrigo.png")}
+      alt="Rodrigo Sánchez-Martínez"
+      class="instructor-photo"
+    />
+
+    <blockquote class="instructor-quote">
+      <p>
+        Mi nombre es <b>Rodrigo Sánchez-Martínez</b>, actual estudiante de doctorado
+        y divulgador científico especializado en visualización de datos y comunicación
+        científica.
+      </p>
+      <p>
+        Aprendí LaTeX durante mi formación académica y desde entonces se ha convertido
+        en mi herramienta principal para escribir artículos científicos, preparar material
+        docente y desarrollar visualizaciones para investigación y divulgación.
+      </p>
+      <p class="instructor-link">
+        <a href={asset("/sobre")}>
+          Conoce más sobre mi investigación y el proyecto Ars Mathematica →
+        </a>
+      </p>
+    </blockquote>
+
+  </section>
+</div>
