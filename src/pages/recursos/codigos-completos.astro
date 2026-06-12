@@ -3,8 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import CodeCard from "../../components/CodeCard.astro";
 
 import { getCollection } from "astro:content";
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+import { asset } from "../../utils/asset.ts";
 
 const resources = await getCollection("resources");
 
@@ -33,7 +32,7 @@ const allTags = [
   <main class="container page">
 
     <a
-        href={`${base}/recursos`}
+        href={asset("/recursos")}
         class="back-link"
         >
         ← Regresar a recursos
