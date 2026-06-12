@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
 import NewsCard from "../components/NewsCard.astro";
 
 import { getCollection } from "astro:content";
@@ -15,8 +14,6 @@ news.sort(
 ---
 
 <BaseLayout title="Noticias">
-
-  <Header />
 
   <main class="container page">
 

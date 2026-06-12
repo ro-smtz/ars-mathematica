@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
 import AboutHero from "../components/AboutHero.astro";
 
 import { getEntry, render } from "astro:content";
@@ -17,8 +16,6 @@ const { Content } = await render(page);
 ---
 
 <BaseLayout title="Sobre mí">
-
-  <Header />
 
   <main class="container">
 

@@ -1,20 +1,20 @@
 ---
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+import { asset } from "../utils/asset.ts";
 ---
 
 <header>
   <div class="container nav">
 
-    <a href={`${base}/`} class="brand">
+    <a href={asset("/")} class="brand">
       Ars Mathematica
     </a>
 
     <nav>
-      <a href={`${base}/cursos`}>Cursos</a>
-      <a href={`${base}/tutoriales`}>Tutoriales</a>
-      <a href={`${base}/noticias`}>Noticias</a>
-      <a href={`${base}/recursos`}>Recursos</a>
-      <a href={`${base}/sobre`}>Sobre mí</a>
+      <a href={asset("/cursos")}>Cursos</a>
+      <a href={asset("/tutoriales")}>Tutoriales</a>
+      <a href={asset("/noticias")}>Noticias</a>
+      <a href={asset("/recursos")}>Recursos</a>
+      <a href={asset("/sobre")}>Sobre mí</a>
     </nav>
 
   </div>

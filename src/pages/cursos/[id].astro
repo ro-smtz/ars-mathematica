@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Header from "../../components/Header.astro";
 import { asset } from "../../utils/asset.ts";
 import { getCollection, getEntry, render } from "astro:content";
 
@@ -11,13 +10,11 @@ export async function getStaticPaths() {
   }));
 }
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-
 const { id } = Astro.params;
 const course = await getEntry("courses", id);
 
 if (!course) {
-  return Astro.redirect("/cursos");
+  return Astro.redirect(asset("/cursos"));
 }
 
 const { Content } = await render(course);
@@ -28,8 +25,6 @@ const isArchived = course.data.status === "archived";
 ---
 
 <BaseLayout title={`${course.data.title} — Ars Mathematica`}>
-
-  <Header />
 
   <main class="container page">
 
@@ -108,7 +103,7 @@ const isArchived = course.data.status === "archived";
       <section class="instructor-section">
 
         <img
-          src={`${base}/images/rodrigo.png`}
+          src={asset("/images/rodrigo.png")}
           alt="Rodrigo Sánchez-Martínez"
           class="instructor-photo"
         />
@@ -126,7 +121,7 @@ const isArchived = course.data.status === "archived";
           </p>
 
           <p class = "instructor-link">
-            <a href={base + "/sobre"}>
+            <a href={asset("/sobre")}>
               Conoce más sobre mi investigación y el proyecto Ars Mathematica →
             </a>
           </p>
