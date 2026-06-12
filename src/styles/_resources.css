@@ -1,0 +1,103 @@
+.codes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.code-card {
+  max-width: 300px;
+}
+
+.code-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: -0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.code-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.code-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.15rem;
+}
+
+.code-description {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+
+.code-tags {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.code-link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.code-link:hover {
+  border-color: var(--text);
+}
+
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tag-pill {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tag-pill.active {
+  background-color: var(--border);
+  color: var(--text);
+  border-color: var(--border);
+  cursor: default;
+}
+
+.resource-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.resource-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-stat strong {
+  font-size: 1.1rem;
+}
+
+.resource-stat span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
