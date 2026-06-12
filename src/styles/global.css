@@ -41,7 +41,6 @@ a {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
-  padding-left: 2rem;
 }
 
 .page {
@@ -675,13 +674,6 @@ blockquote {
   border-bottom: 1px solid var(--border);
 }
 
-.news-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
 .news-kind {
   display: inline-block;
 
@@ -711,12 +703,16 @@ blockquote {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+
   font-size: 0.9rem;
   color: var(--muted);
 }
-
 .news-body {
-  max-width: 700px;
+  max-width: 800px;
 }
 
 .news-body p {
@@ -1009,11 +1005,10 @@ footer {
 
   .container {
     padding: 0 1rem;
-    padding-left: 2rem;
   }  
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .site-title {
