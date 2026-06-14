@@ -11,62 +11,62 @@
   display: block;
 }
 
-/* Manifiesto */
+/* Manifesto */
 
-.manifiesto {
+.manifesto {
   max-width: 680px;
   margin: 0 auto;
   padding-top: 1rem;
   padding-bottom: 4rem;
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   line-height: 1.9;
   color: var(--text);
 }
 
-.manifiesto p + p {
+.manifesto p + p {
   margin-top: 1.25rem;
 }
 
 /* Figuras */
 
-.figuras-grid {
+.figures-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
-.figura-card {
+.figure-card {
   padding: 0;
   max-width: 350px;
 }
 
-.figura-card img {
+.figure-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
-.figura-title {
+.figure-title {
   font-weight: 600;
   margin-top: 0.75rem;
   margin-bottom: 0.25rem;
 }
 
-.figura-desc {
-  font-size: 0.9rem;
+.figure-description {
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.6;
 }
 
-.figura-info {
+.figure-info {
   padding: 0.75rem;
 }
 
-.figura-instagram {
+.figure-instagram {
   display: inline-block;
   margin-top: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--muted);
   border: 1px solid var(--border);
   padding: 0.25rem 0.65rem;
@@ -74,9 +74,9 @@
   transition: color 0.2s, border-color 0.2s;
 }
 
-.figura-instagram:hover {
-  color: var(--text);
-  border-color: var(--text);
+.figure-instagram:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* Instagram profile block */
@@ -111,7 +111,8 @@
 
 .instagram-handle {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: var(--text);
 }
 
@@ -119,6 +120,7 @@
   margin-top: 0.35rem;
   margin-bottom: 1rem;
   font-size: 0.95rem;
+  color: var(--text);
   line-height: 1.3;
 }
 
@@ -133,20 +135,21 @@
 }
 
 .instagram-stat strong {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   font-weight: 600;
   line-height: 1;
 }
 
 .instagram-stat span {
   margin-top: 0.25rem;
-  font-size: 0.95rem;
-  color: var(--text);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
 }
 
 .instagram-bio {
   max-width: 650px;
   line-height: 1.75;
   font-size: 0.95rem;
+  color: var(--text);
   margin-bottom: 0;
 }

@@ -1,7 +1,10 @@
 :root {
-  --text: #222;
-  --muted: #666;
-  --border: #e5e5e5;
-  --background: #ffffff;
-  --accent-light: #888;
+  --text:           #1a1a1a;
+  --text-secondary: #555555;
+  --muted:          #888888;
+  --border:         #e0e0e0;
+  --border-strong:  #aaaaaa;
+  --surface:        #f6f6f6;
+  --background:     #ffffff;
+  --accent:         #111111;
 }

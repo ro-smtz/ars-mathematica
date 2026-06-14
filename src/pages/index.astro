@@ -41,7 +41,7 @@ const latestNews = news.slice(0, 5);
       Non eruditis, sed erudiendis.
     </p>
 
-    <section class="container manifiesto">
+    <section class="container manifesto">
       <p>
         ¡Bienvenidos al sitio oficial del projecto Ars Mathematica!
         Aquí encontrarás cursos, tutoriales y recursos para aprender a comunicar
@@ -186,12 +186,12 @@ const latestNews = news.slice(0, 5);
           Publicaciones destacadas
         </h3>
 
-        <div class="figuras-grid">
+        <div class="figures-grid">
           {featuredFigures.map((fig) => (
-            <div class="figura-card">
+            <div class="figure-card">
               <img src={asset(fig.data.image)} alt={fig.data.title} />
-              <p class="figura-title">{fig.data.title}</p>
-              <p class="figura-desc">{fig.data.description}</p>
+              <p class="figure-title">{fig.data.title}</p>
+              <p class="figure-description">{fig.data.description}</p>
               {fig.data.instagram && (
                 <a
                   href={fig.data.instagram}

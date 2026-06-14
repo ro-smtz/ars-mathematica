@@ -21,25 +21,36 @@ a {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
 .site-title {
   font-family: "Libre Baskerville", serif;
-  font-size: 2.5rem;
+  font-size: 4rem;
+  font-weight: 600;
   margin: 0;
 }
 
 .subtitle {
-  color: var(--muted);
-  font-size: 1.15rem;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
 }
 
 .mantra {
   font-size: 1rem;
-  color: var(--text);
+  color: var(--text-secondary);
   margin-top: 1.75rem;
   margin-left: auto;
   margin-right: auto;
@@ -50,9 +61,8 @@ h1 {
 }
 
 blockquote {
-  border-left: 4px solid var(--border);
+  border-left: 3px solid var(--border-strong);
   margin: 2rem 0;
-  padding-left: 1.25rem;
-  color: var(--muted);
-  font-style: italic;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  color: var(--text-secondary);
 }
