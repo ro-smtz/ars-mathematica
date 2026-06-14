@@ -7,28 +7,23 @@
 
 .news-entry {
   padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
 }
 
 .news-kind {
   display: inline-block;
   padding: 0.15rem 0.55rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text);
+  color: var(--text-secondary);
 }
 
 .news-date {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-bottom: 0.5rem;
-}
-
-.news-title {
-  font-size: 1.5rem;
-  margin: 0;
 }
 
 .news-meta {
@@ -38,8 +33,14 @@
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--muted);
+}
+
+.news-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
 }
 
 .news-body {
@@ -48,14 +49,16 @@
 
 .news-body p {
   margin-bottom: 1rem;
+  color: var(--text);
+  line-height: 1.7;
 }
 
 .news-link {
   display: inline-block;
   margin-top: 0.5rem;
-  color: var(--text);
+  color: var(--text-secondary);
 }
 
 .news-link:hover {
-  text-decoration: underline;
+  color: var(--accent);
 }

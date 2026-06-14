@@ -1,13 +1,12 @@
-.ver-todas {
+.view-all {
   display: block;
   text-align: center;
   margin-top: 2rem;
-  font-size: 0.95rem;
   color: var(--muted);
 }
 
-.ver-todas:hover {
-  color: var(--text);
+.view-all:hover {
+  color: var(--accent);
 }
 
 .back-link {
@@ -18,25 +17,32 @@
 }
 
 .back-link:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
-.en-construccion {
+
+.under-construction {
   text-align: center;
   padding: 6rem 2rem;
   max-width: 480px;
   margin: 0 auto;
 }
 
-.construccion-icon {
+.construction-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.construccion-h2 {
+.construction-title {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
+}
+
+.construction-text {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
 }
 
 .construccion-text {
@@ -48,9 +54,9 @@
 .about-hero {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 2rem;
+  gap: 1rem;
   align-items: start;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .about-photo img {

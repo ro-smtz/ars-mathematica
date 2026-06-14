@@ -10,7 +10,7 @@
 }
 
 .code-date {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: -0.25rem;
   margin-bottom: 0.75rem;
@@ -31,13 +31,14 @@
 
 .code-description {
   font-size: 0.95rem;
-  color: var(--text);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-top: 0.25rem;
 }
 
+
 .code-tags {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 0.25rem;
   margin-bottom: 0.75rem;
@@ -50,7 +51,7 @@
 }
 
 .code-link:hover {
-  border-color: var(--text);
+  color: var(--accent);
 }
 
 .tags-cloud {
@@ -66,19 +67,24 @@
   padding: 0.25rem 0.5rem;
   border: 2px solid var(--border);
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--muted);
   background: transparent;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
+.tag-pill:hover {
+  color: var(--text-secondary);
+  border-color: var(--border-strong);
+}
+
 .tag-pill.active {
-  background-color: var(--border);
-  color: var(--text);
-  border-color: var(--border);
+  border-color: var(--border-strong);
+  color: var(--text-secondary);
   cursor: default;
 }
+
 
 .resource-stats {
   display: flex;
@@ -94,10 +100,11 @@
 }
 
 .resource-stat strong {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
 .resource-stat span {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }

@@ -61,8 +61,8 @@ h3 {
 }
 
 blockquote {
-  border-left: 3px solid var(--border-strong);
+  border-left: 3px solid var(--border);
   margin: 2rem 0;
-  padding: 0.25rem 0 0.25rem 1.25rem;
+  padding: 0 0 0 1.25rem;
   color: var(--text-secondary);
 }

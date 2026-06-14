@@ -1,5 +1,6 @@
 ---
 import { asset } from "../utils/asset.ts";
+const path = Astro.url.pathname;
 ---
 
 <header>
@@ -10,11 +11,11 @@ import { asset } from "../utils/asset.ts";
     </a>
 
     <nav>
-      <a href={asset("/cursos")}>Cursos</a>
-      <a href={asset("/tutoriales")}>Tutoriales</a>
-      <a href={asset("/noticias")}>Noticias</a>
-      <a href={asset("/recursos")}>Recursos</a>
-      <a href={asset("/sobre")}>Sobre mí</a>
+      <a href={asset("/cursos")} class={path.includes("/cursos") ? "active" : ""}>Cursos</a>
+      <a href={asset("/tutoriales")} class={path.includes("/tutoriales") ? "active" : ""}>Tutoriales</a>
+      <a href={asset("/noticias")} class={path.includes("/noticias") ? "active" : ""}>Noticias</a>
+      <a href={asset("/recursos")} class={path.includes("/recursos") ? "active" : ""}>Recursos</a>
+      <a href={asset("/sobre")} class={path.includes("/sobre") ? "active" : ""}>Sobre mí</a>
     </nav>
 
   </div>

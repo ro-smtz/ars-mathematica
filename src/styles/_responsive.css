@@ -1,11 +1,11 @@
 @media (max-width: 768px) {
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .site-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .logo {
@@ -42,7 +42,7 @@
   }
 
   .course-hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     line-height: 1.3;
   }
 
@@ -69,8 +69,8 @@
   }
 
   .news-home {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .news-entry {

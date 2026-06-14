@@ -22,7 +22,7 @@
 
 .family-header {
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
   padding-bottom: 0.75rem;
 }
 
@@ -54,10 +54,6 @@
   transition: border-color 0.2s;
 }
 
-.course-card:hover {
-  border-color: var(--accent);
-}
-
 .course-card-image img {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -87,7 +83,7 @@
 }
 
 .course-level {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 
