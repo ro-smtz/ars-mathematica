@@ -25,7 +25,10 @@ const isComingSoon = course.data.status === "coming-soon";
 const isArchived = course.data.status === "archived";
 ---
 
-<BaseLayout title={`${course.data.title} — Ars Mathematica`}>
+<BaseLayout
+  title={`${course.data.title} — Ars Mathematica`}
+  description={course.data.summary}
+>
 
   <main class="container page">
 

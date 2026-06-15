@@ -1,12 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CodeCard from "../../components/CodeCard.astro";
-
-import { getCollection } from "astro:content";
-import { asset } from "../../utils/asset.ts";
+import { asset } from "../../utils/asset";
 
 const resources = await getCollection("resources");
-
 const codes = resources
   .filter((resource) => resource.data.category === "code")
   .sort(
@@ -27,7 +25,10 @@ const allTags = [
 });
 ---
 
-<BaseLayout title="Códigos completos — Ars Mathematica">
+<BaseLayout
+  title="Códigos completos — Ars Mathematica"
+  description="Códigos fuente anotados de figuras científicas en LaTeX y TikZ. Descarga, estudia y adapta ejemplos reales para tus propios documentos y presentaciones."
+>
 
   <main class="container page">
 

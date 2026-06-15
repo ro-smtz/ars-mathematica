@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CodeCard from "../components/CodeCard.astro";
 
 import { getCollection } from "astro:content";
+import { asset } from "../utils/asset";
 
 const resources = await getCollection("resources");
 
@@ -16,7 +17,10 @@ const codes = resources
   .slice(0,5);
 ---
 
-<BaseLayout title="Recursos — Ars Mathematica">
+<BaseLayout
+  title="Recursos — Ars Mathematica"
+  description="Recursos gratuitos de LaTeX, TikZ y PGFPlots en español: códigos completos, plantillas y materiales descargables para comunicación científica."
+>
 
   <main class="container page">
 
@@ -27,7 +31,12 @@ const codes = resources
       en proyectos científicos y educativos.
     </p>
 
-    <h2>Códigos completos</h2>
+
+    <h2>
+      <a href={asset("/recursos/codigos-completos")}>
+        Códigos completos
+      </a>
+    </h2>
 
     <div class="codes-grid">
       {
