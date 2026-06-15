@@ -23,6 +23,7 @@ const allTags = [
   if (b === "Todos") return 1;
   return a.localeCompare(b);
 });
+const tagCount = allTags.length - 1; // subtract "Todos"
 ---
 
 <BaseLayout
@@ -53,7 +54,7 @@ const allTags = [
         </div>
 
         <div class="resource-stat">
-            <strong>{allTags.length}</strong>
+            <strong>{tagCount}</strong>
             <span>
             {allTags.length === 1
                 ? "categoría"
@@ -61,21 +62,23 @@ const allTags = [
             </span>
         </div>
 
-        <div class="resource-stat">
-            <strong>
-            {
-                new Date(codes[0].data.date).toLocaleDateString(
-                "es-MX",
+        {codes.length > 0 && (
+            <div class="resource-stat">
+                <strong>
                 {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
+                    new Date(codes[0].data.date).toLocaleDateString(
+                    "es-MX",
+                    {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                    }
+                    )
                 }
-                )
-            }
-            </strong>
-            <span>última actualización</span>
-        </div>
+                </strong>
+                <span>última actualización</span>
+            </div>
+        )}
     </div>
 
     <div class="page-intro">
@@ -105,12 +108,14 @@ const allTags = [
     </div>
 
     <h3> Explorar por categorías </h3>
-    <div class="tags-cloud">
+    <div class="tags-cloud" id="tags-cloud">
         {
             allTags.map((tag) => (
             <button
                 type="button"
-                class="tag-pill"
+                class={`tag-pill${tag === "Todos" ? " active" : ""}`}
+                data-tag={tag}
+                aria-pressed={tag === "Todos" ? "true" : "false"}
             >
                 {tag}
             </button>
@@ -118,26 +123,79 @@ const allTags = [
         }
     </div>
 
-    <h2> Todos los códigos </h2>
-    <div class="codes-grid">
+    <h2 id="codes-heading">Todos los códigos </h2>
+    <div class="codes-grid" id="codes-grid">
     {
         codes.length > 0 ? (
         codes.map((resource) => (
-            <CodeCard
-            title={resource.data.title}
-            image={resource.data.image}
-            date={resource.data.date}
-            tags={resource.data.tags}
-            link={resource.data.link}
-            label={resource.data.label}
-            />
+            <div
+              class="code-card-wrapper"
+              data-tags={JSON.stringify(resource.data.tags)}
+            >
+              <CodeCard
+                title={resource.data.title}
+                image={resource.data.image}
+                date={resource.data.date}
+                tags={resource.data.tags}
+                link={resource.data.link}
+                label={resource.data.label}
+              />
+            </div>
         ))
         ) : (
         <p>En construcción...</p>
         ) 
     }
     </div>
+    <p class="codes-empty" id="codes-empty" hidden>
+        No hay códigos en esa categoría todavía.
+    </p>
 
   </main>
 
 </BaseLayout>
+
+<script>
+  const cloud   = document.getElementById("tags-cloud")    as HTMLElement;
+  const grid    = document.getElementById("codes-grid")    as HTMLElement;
+  const heading = document.getElementById("codes-heading") as HTMLElement;
+  const empty   = document.getElementById("codes-empty")   as HTMLElement;
+ 
+  if (cloud && grid) {
+    const pills    = cloud.querySelectorAll<HTMLButtonElement>(".tag-pill");
+    const wrappers = grid.querySelectorAll<HTMLElement>(".code-card-wrapper");
+ 
+    function applyFilter(activeTag: string) {
+      // Update pill states
+      pills.forEach((pill) => {
+        const isActive = pill.dataset.tag === activeTag;
+        pill.classList.toggle("active", isActive);
+        pill.setAttribute("aria-pressed", String(isActive));
+      });
+ 
+      // Show/hide cards
+      let visibleCount = 0;
+      wrappers.forEach((wrapper) => {
+        const tags: string[] = JSON.parse(wrapper.dataset.tags ?? "[]");
+        const visible = activeTag === "Todos" || tags.includes(activeTag);
+        wrapper.hidden = !visible;
+        if (visible) visibleCount++;
+      });
+ 
+      // Update heading and empty state
+      if (heading) {
+        heading.textContent =
+          activeTag === "Todos"
+            ? "Todos los códigos"
+            : `Códigos de ${activeTag}`;
+      }
+      if (empty) empty.hidden = visibleCount > 0;
+    }
+ 
+    cloud.addEventListener("click", (e) => {
+      const pill = (e.target as HTMLElement).closest<HTMLButtonElement>(".tag-pill");
+      if (!pill?.dataset.tag) return;
+      applyFilter(pill.dataset.tag);
+    });
+  }
+</script>
