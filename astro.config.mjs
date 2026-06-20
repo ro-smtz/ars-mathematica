@@ -6,4 +6,9 @@ export default defineConfig({
   site: "https://ro-smtz.github.io",
   base: "/ars-mathematica",
   output: 'static', // explicit, though it's the default
+  markdown: {
+    shikiConfig: {
+      theme: "github-light",
+    },
+  },
 });

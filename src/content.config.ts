@@ -118,6 +118,14 @@ const news = defineCollection({
   }),
 });
 
+const notes = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
+  schema: z.object({
+    title: z.string(),
+    course: z.string(),
+  }),
+});
+
 export const collections = { 
   courses,
   figures,
@@ -125,4 +133,5 @@ export const collections = {
   pages,
   news,
   resources,
+  notes,
 };
