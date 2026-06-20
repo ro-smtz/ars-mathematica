@@ -62,29 +62,6 @@
   margin-bottom: 2rem;
 }
 
-/* .tag-pill {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.875rem;
-  color: var(--muted);
-  background: transparent;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.tag-pill:hover {
-  color: var(--text-secondary);
-  border-color: var(--border-strong);
-}
-
-.tag-pill.active {
-  border-color: var(--border-strong);
-  color: var(--text-secondary);
-  cursor: default;
-} */
-
 /* Pill base — already exists; shown here for context */
 .tag-pill {
   display: inline-block;

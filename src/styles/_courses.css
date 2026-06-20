@@ -221,11 +221,11 @@
 
 .course-content pre {
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: 8px;
-  padding: 1rem 1.25rem;
+  padding: 0.5rem 1rem;
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .course-content pre code {

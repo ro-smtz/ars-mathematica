@@ -229,6 +229,8 @@ tienen un perfil que ejecuta esta secuencia automáticamente.
 > escribirlas a mano. Siempre verifica que `author`, `title`, `journal` y
 > `year` estén completos antes de compilar.
 
+## Unidad 2 · Aplicaciones y utilidades
+
 ### Escritura de texto matemático
 
 LaTeX distingue dos modos de escritura matemática: en línea (*inline*) y en
@@ -258,7 +260,7 @@ Para ecuaciones que merecen su propia línea. Sin numeración:
 \]
 ```
 
-Con numeración, usar el entorno `equation` de `amsmath` (ver Unidad 2).
+Con numeración, usar el entorno `{equation}` de `amsmath`.
 
 #### Convenciones tipográficas
 
@@ -428,9 +430,9 @@ Para colocar dos figuras lado a lado con descripciones independientes:
 sobrante en el centro. Las subfiguras se referencian individualmente con
 `\ref{subfig:espectro-te}` o como conjunto con `\ref{fig:espectros}`.
 
-## Unidad 2 · Paquetes indispensables
+### Paquetes indispensables
 
-### El paquete `amsmath`
+#### El paquete `amsmath`
 
 Extiende las capacidades matemáticas básicas de LaTeX y proporciona los entornos más utilizados para escribir ecuaciones en artículos científicos.
 
@@ -439,7 +441,7 @@ Extiende las capacidades matemáticas básicas de LaTeX y proporciona los entorn
 \usepackage{amsmath}
 ```
 
-#### Entorno `equation`
+**Entorno `equation`**
 
 Permite numerar una ecuación individual.
 
@@ -449,7 +451,7 @@ Permite numerar una ecuación individual.
 \end{equation}
 ```
 
-#### Entorno `align`
+**Entorno `align`**
 
 Permite alinear varias ecuaciones utilizando el símbolo `&`.
 
@@ -460,7 +462,7 @@ Permite alinear varias ecuaciones utilizando el símbolo `&`.
 \end{align}
 ```
 
-#### Entorno `gather`
+**Entorno `gather`**
 
 Centra varias ecuaciones sin alinearlas.
 
@@ -471,7 +473,7 @@ Centra varias ecuaciones sin alinearlas.
 \end{gather}
 ```
 
-#### Entorno `multline`
+**Entorno `multline`**
 
 Útil para ecuaciones largas que deben dividirse en varias líneas.
 
@@ -482,7 +484,7 @@ Centra varias ecuaciones sin alinearlas.
 \end{multline}
 ```
 
-#### Entorno `split`
+**Entorno `split`**
 
 Permite dividir una ecuación dentro de `equation`.
 
@@ -495,7 +497,7 @@ Permite dividir una ecuación dentro de `equation`.
 \end{equation}
 ```
 
-#### Cómo referenciar ecuaciones
+**Cómo referenciar ecuaciones**
 
 La práctica estándar de LaTeX es utilizar `\label{eq:etiqueta}` para referenciar ecuaciones.
 
@@ -506,7 +508,7 @@ La práctica estándar de LaTeX es utilizar `\label{eq:etiqueta}` para referenci
 \end{equation}
 ```
 
-Luego podemos hacer referencia usando, `(\ref{eq:etiqueta})` o `eqref{eq:etiqueta}`, que imprime los paréntesis alrededor del número de la ecuación automáticamente.
+Luego podemos hacer referencia usando, `(\ref{eq:etiqueta})` o `\eqref{eq:etiqueta}`, que imprime los paréntesis alrededor del número de la ecuación automáticamente.
 
 ```latex
 La ecuación (\ref{eq:schrodinger}) se llama \emph{ecuación de Schrödinger}.
@@ -516,7 +518,7 @@ Para colocar un número de ecuación arbitrario, se usa `\tag{}`.
 
 ---
 
-### Los paquetes `amssymb` y `amsfonts`
+#### Los paquetes `amssymb` y `amsfonts`
 
 Estos paquetes proporcionan muchos de los símbolos matemáticos utilizados habitualmente en física y matemáticas, así como distintos alfabetos matemáticos.
 
@@ -549,7 +551,7 @@ Frecuente para espacios vectoriales, operadores y funcionales.
 \mathcal{H}
 ```
 
-#### Ejemplo típico
+Ejemplo típico
 
 ```latex
 \begin{equation}
@@ -559,12 +561,16 @@ Frecuente para espacios vectoriales, operadores y funcionales.
 \end{equation}
 ```
 
+$$
+    \forall x \in\mathbb{R}, \qquad f : \mathbb{R}\rightarrow\mathbb{R}
+$$
+
 > **Recomendación:** Usualmente se cargan en conjunto las tres paqueterías básicas de matemáticas:
 > `\usepackage{amsmath,amssymb,amsfonts}`
 
 ---
 
-### El paquete `physics`
+#### El paquete `physics`
 
 Proporciona comandos abreviados para derivadas, vectores, notación de Dirac,
 conmutadores y otros objetos matemáticos frecuentes en física.
@@ -573,7 +579,7 @@ conmutadores y otros objetos matemáticos frecuentes en física.
 \usepackage{physics}
 ```
 
-#### Derivadas ordinarias
+**Derivadas ordinarias**
 
 | Comando `physics` | LaTeX equivalente | Resultado |
 |---|---|---|
@@ -581,7 +587,7 @@ conmutadores y otros objetos matemáticos frecuentes en física.
 | `\dv[2]{f}{x}` | `\frac{\mathrm{d}^2f}{\mathrm{d}x^2}` | $\dfrac{\mathrm{d}^2f}{\mathrm{d}x^2}$ |
 | `\dv{x}(f+g)` | `\frac{\mathrm{d}}{\mathrm{d}x}(f+g)` | $\dfrac{\mathrm{d}}{\mathrm{d}x}(f+g)$ |
 
-#### Derivadas parciales
+**Derivadas parciales**
 
 | Comando `physics` | LaTeX equivalente | Resultado |
 |---|---|---|
@@ -589,7 +595,7 @@ conmutadores y otros objetos matemáticos frecuentes en física.
 | `\pdv[2]{f}{x}` | `\frac{\partial^2 f}{\partial x^2}` | $\dfrac{\partial^2 f}{\partial x^2}$ |
 | `\pdv{f}{x}{y}` | `\frac{\partial^2 f}{\partial x\,\partial y}` | $\dfrac{\partial^2 f}{\partial x\,\partial y}$ |
 
-#### Delimitadores automáticos
+**Delimitadores automáticos**
 
 Los delimitadores se ajustan automáticamente al tamaño del contenido.
 
@@ -599,14 +605,14 @@ Los delimitadores se ajustan automáticamente al tamaño del contenido.
 | `\qty[ \frac{a}{b} ]` | `\left[ \frac{a}{b} \right]` | $\left[ \dfrac{a}{b} \right]$ |
 | `\qty{ \frac{a}{b} }` | `\left\{ \frac{a}{b} \right\}` | $\left\{ \dfrac{a}{b} \right\}$ |
 
-#### Valor absoluto y norma
+**Valor absoluto y norma**
 
 | Comando `physics` | LaTeX equivalente | Resultado |
 |---|---|---|
 | `\abs{x}` | `\left\lvert x \right\rvert` | $\left\lvert x \right\rvert$ |
 | `\norm{\mathbf{v}}` | `\left\lVert \mathbf{v} \right\rVert` | $\left\lVert \mathbf{v} \right\rVert$ |
 
-#### Vectores
+**Vectores**
 
 | Comando `physics` | LaTeX equivalente | Resultado |
 |---|---|---|
@@ -617,7 +623,7 @@ Los delimitadores se ajustan automáticamente al tamaño del contenido.
 El comando `\vb*{}` se usa para símbolos griegos y operadores que no tienen variante
 bold directa — `\vb{}` solo funciona correctamente con letras latinas.
 
-#### Notación de Dirac
+**Notación de Dirac**
 
 | Comando `physics` | LaTeX equivalente | Resultado |
 |---|---|---|
@@ -628,7 +634,7 @@ bold directa — `\vb{}` solo funciona correctamente con letras latinas.
 | `\expval{A}` | `\left\langle A \right\rangle` | $\left\langle A \right\rangle$ |
 | `\expval{H}{\psi}` | `\left\langle \psi \middle\| H \middle\| \psi \right\rangle` | $\left\langle \psi \middle\vert H \middle\vert \psi \right\rangle$ |
 
-#### Conmutadores
+**Conmutadores**
 
 | Comando `physics` | LaTeX equivalente | Resultado |
 |---|---|---|
@@ -644,7 +650,7 @@ bold directa — `\vb{}` solo funciona correctamente con letras latinas.
 
 ---
 
-### El paquete `siunitx`
+#### El paquete `siunitx`
 
 El Sistema Internacional de Unidades (SI) establece no solo las unidades de
 medida, sino también cómo deben escribirse tipográficamente. Algunas reglas
@@ -665,7 +671,7 @@ El paquete `siunitx` hace cumplir estas convenciones automáticamente.
 \usepackage{siunitx}
 ```
 
-#### Cantidades físicas
+**Cantidades físicas**
 
 El comando principal es `\qty{número}{unidad}`:
 
@@ -676,7 +682,7 @@ El comando principal es `\qty{número}{unidad}`:
 | `\qty{9.8}{\meter\per\second\squared}` | $9.8\ \mathrm{m\ s^{-2}}$ |
 | `\qty{1.602e-19}{\coulomb}` | $1.602 \times 10^{-19}\ \mathrm{C}$ |
 
-#### Unidades aisladas
+**Unidades aisladas**
 
 Cuando se necesita escribir una unidad sin cantidad, se usa `\unit{}`:
 
@@ -691,7 +697,7 @@ Cuando se necesita escribir una unidad sin cantidad, se usa `\unit{}`:
 Los prefijos (`\nano`, `\micro`, `\kilo`, etc.) se anteponen directamente
 a la unidad como comandos encadenados.
 
-#### Números y notación científica
+**Números y notación científica**
 
 `\num{}` formatea números sin unidad — maneja notación científica, separadores
 de miles y redondeo:
@@ -702,7 +708,7 @@ de miles y redondeo:
 | `\num{6.022e23}` | $6.022 \times 10^{23}$ |
 | `\num{0.000123}` | $0.000123$ |
 
-#### Rangos e incertidumbres
+**Rangos e incertidumbres**
 
 | Comando | Resultado |
 |---|---|
@@ -713,7 +719,7 @@ de miles y redondeo:
 La notación `(5)` es la forma compacta estándar de incertidumbre — el número
 entre paréntesis afecta al último dígito significativo.
 
-#### Alineación en tablas
+**Alineación en tablas**
 
 En tablas experimentales es frecuente necesitar alinear números respecto al
 punto decimal.
@@ -743,7 +749,7 @@ no intente interpretarlos como números.
 
 ---
 
-### El paquete `mhchem`
+#### El paquete `mhchem`
 
 Permite escribir fórmulas químicas, reacciones y ecuaciones químicas con una
 sintaxis legible que compila a tipografía conforme a las recomendaciones de la
@@ -756,7 +762,7 @@ IUPAC.
 El comando central es `\ce{}`, que interpreta su argumento con reglas
 propias — distintas a las de modo math.
 
-#### Fórmulas, iones y estados físicos
+**Fórmulas, iones y estados físicos**
 
 | Comando | Resultado |
 |---|---|
@@ -770,7 +776,7 @@ propias — distintas a las de modo math.
 Los subíndices numéricos se escriben directamente sin `_`; `mhchem` los
 interpreta automáticamente.
 
-#### Reacciones y equilibrio
+**Reacciones y equilibrio**
 
 | Comando | Resultado |
 |---|---|
@@ -784,7 +790,7 @@ Las condiciones experimentales van entre corchetes después de `->`: el primer
 argumento aparece encima de la flecha y el segundo debajo —
 `\ce{A ->[encima][debajo] B}`.
 
-#### Isótopos y reacciones nucleares
+**Isótopos y reacciones nucleares**
 
 | Comando | Resultado |
 |---|---|
@@ -797,7 +803,7 @@ argumento aparece encima de la flecha y el segundo debajo —
 
 ---
 
-### El paquete `chemfig`
+#### El paquete `chemfig`
 
 Permite dibujar estructuras moleculares directamente en LaTeX, sin software
 externo. La sintaxis describe la molécula como una secuencia de átomos
@@ -807,7 +813,7 @@ conectados por enlaces con ángulos explícitos.
 \usepackage{chemfig}
 ```
 
-#### Tipos de enlace
+**Tipos de enlace**
 
 | Comando | Tipo |
 |---|---|
@@ -815,7 +821,7 @@ conectados por enlaces con ángulos explícitos.
 | `\chemfig{A=B}` | Doble |
 | `\chemfig{A~B}` | Triple |
 
-#### Ángulos de enlace
+**Ángulos de enlace**
 
 Por defecto los enlaces son horizontales. El ángulo se especifica entre
 corchetes:
@@ -826,7 +832,7 @@ corchetes:
 \chemfig{A-[:-45]B}    % ángulo absoluto de -45°
 ```
 
-#### Moléculas representativas
+**Moléculas representativas**
 
 ```latex
 % Metano
@@ -860,7 +866,7 @@ alternan enlaces dobles y simples dentro del anillo.
 
 ---
 
-### El paquete `booktabs`
+#### El paquete `booktabs`
 
 Las tablas predeterminadas de LaTeX usan líneas verticales y `\hline` —
 una convención heredada de las primeras impresoras que va en contra de las
@@ -879,7 +885,7 @@ científicas.
 | `\bottomrule` | Línea inferior de la tabla |
 | `\cmidrule{i-j}` | Línea parcial entre columnas $i$ y $j$ |
 
-#### Ejemplo completo
+**Ejemplo completo**
 
 ```latex
 \begin{table}[htbp]
@@ -907,7 +913,7 @@ más común en tablas experimentales.
 
 ---
 
-### El paquete `hyperref`
+#### El paquete `hyperref`
 
 Convierte automáticamente todas las referencias cruzadas, citas, entradas
 de la tabla de contenidos y URLs en hipervínculos dentro del PDF — sin
@@ -921,7 +927,7 @@ cambiar nada en el cuerpo del documento.
 > Redefine internamente muchos comandos de LaTeX; cargarlo antes que otros
 > paquetes genera conflictos difíciles de diagnosticar.
 
-#### Opciones básicas
+**Opciones básicas**
 
 ```latex
 \usepackage[
@@ -939,7 +945,7 @@ un rectángulo. Para versiones de impresión conviene desactivar el color:
 \usepackage[hidelinks]{hyperref}
 ```
 
-#### Metadatos del PDF
+**Metadatos del PDF**
 
 `hyperref` permite incrustar metadatos directamente en el PDF:
 
@@ -950,7 +956,7 @@ un rectángulo. Para versiones de impresión conviene desactivar el color:
 }
 ```
 
-#### Compatibilidad con `biblatex`
+**Compatibilidad con `biblatex`**
 
 `hyperref` convierte las citas de `biblatex` en hipervínculos a la
 bibliografía automáticamente — no requiere configuración adicional. El
@@ -963,7 +969,7 @@ orden de carga correcto en el preámbulo es:
 \usepackage{hyperref}   % siempre al final
 ```
 
-#### URLs en el texto
+**URLs en el texto**
 
 ```latex
 \url{https://journals.aps.org}
@@ -1082,7 +1088,7 @@ total de la página. Para referirse al ancho de una sola columna se usa
 > automáticamente, y evitan tener que refornatear el documento al momento
 > de la sumisión.
 
-## Definir tus propios comandos
+## Unidad extra · Definir tus propios comandos
 
 En un artículo de física es común repetir las mismas expresiones decenas de
 veces — el hamiltoniano del sistema, la función de onda, operadores con
@@ -1137,12 +1143,12 @@ En uso:
 El primer argumento puede ser opcional con un valor predeterminado:
 
 ```latex
-\newcommand{\bra}[2][\dagger]{{#2}^{#1}}
+\newcommand{\foo}[2][\dagger]{{#2}^{#1}}
 ```
 
 ```latex
-\bra{A}       % A†   — usa el default
-\bra[*]{A}    % A*   — sobreescribe el default
+\foo{A}       % A†   — usa el default
+\foo[*]{A}    % A*   — sobreescribe el default
 ```
 
 > **Recomendación:** Define tus comandos en el preámbulo, agrupados por

@@ -11,6 +11,8 @@ const { Content, headings } = await render(entry);
 <BaseLayout title={entry.data.title}>
   <main class="container">
     <h1>{entry.data.title}</h1>
-    <Content />
+    <div class="course-content">
+      <Content />
+    </div>
   </main>
 </BaseLayout>
