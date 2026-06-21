@@ -28,8 +28,7 @@ const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
       </nav>
     </aside>
 
-    <div class="notes-toc-overlay" id="notes-toc-overlay"></div>
-    <button class="notes-toc-toggle" id="notes-toc-toggle" aria-label="Abrir índice">☰</button>
+    <button class="notes-toc-toggle" id="notes-toc-toggle" aria-label="Abrir índice">Contenido</button>
 
     <main class="notes-content">
       <h1 id="top">{entry.data.title}</h1>
@@ -42,20 +41,25 @@ const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
   <script>
     const toc = document.getElementById("notes-toc");
     const toggle = document.getElementById("notes-toc-toggle");
-    const overlay = document.getElementById("notes-toc-overlay");
 
     function openToc() {
       toc?.classList.add("is-open");
-      overlay?.classList.add("is-open");
     }
 
     function closeToc() {
       toc?.classList.remove("is-open");
-      overlay?.classList.remove("is-open");
     }
 
-    toggle?.addEventListener("click", openToc);
-    overlay?.addEventListener("click", closeToc);
+    toggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toc?.classList.contains("is-open") ? closeToc() : openToc();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!toc?.contains(e.target as Node)) {
+        closeToc();
+      }
+    });
 
     toc?.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", closeToc);
