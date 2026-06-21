@@ -130,25 +130,4 @@
   .notes-toc {
     position: static;
   }
-
-  .notes-toc-mobile {
-    display: block;
-  }
-
-  .notes-toc-mobile > summary {
-    display: none;
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-    user-select: none;
-  }
-
-  .notes-toc-list {
-    border-left: 1px solid var(--border);
-    margin-top: 0.5rem;
-  }
 }
