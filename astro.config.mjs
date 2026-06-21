@@ -1,16 +1,17 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import { rehypeInlineLatex } from './src/plugins/rehype-inline-latex.js';
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://ro-smtz.github.io",
   base: "/ars-mathematica",
   output: 'static',
   markdown: {
+    processor: unified({
+      rehypePlugins: [rehypeInlineLatex],
+    }),
     shikiConfig: {
       theme: "github-light",
     },
-    rehypePlugins: [rehypeInlineLatex],
   },
 });

@@ -6,12 +6,13 @@ export function rehypeInlineLatex() {
     const nodes = [];
 
     visit(tree, "element", (node, index, parent) => {
-      if (
+    if (
         node.tagName === "code" &&
-        parent?.tagName !== "pre"
-      ) {
+        parent?.tagName !== "pre" &&
+        !["h1", "h2", "h3", "h4", "h5", "h6"].includes(parent?.tagName)
+    ) {
         nodes.push({ node, index, parent });
-      }
+    }
     });
 
     await Promise.all(

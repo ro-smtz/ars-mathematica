@@ -355,3 +355,64 @@
 .enrollment-section {
   margin-top: 4rem;
 }
+
+/* === Notes layout === */
+
+.notes-content {
+  min-width: 0;
+}
+
+.notes-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+}
+
+.notes-toc {
+  position: sticky;
+  top: 2rem;
+}
+
+.notes-toc-title {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.notes-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notes-toc-item a {
+  display: block;
+  padding: 0.3rem 0rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+
+.notes-toc-item.depth-3 a {
+  padding-left: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 300;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.notes-toc-top {
+  margin-top: 0.5rem;
+  border-top: 2px solid var(--border);
+  padding-top: 0.25rem;
+}

@@ -24,8 +24,7 @@ genera automáticamente el número y el título, y alimenta la tabla de contenid
 \paragraph{Nota sobre notación}
 ```
 
-En artículos de una columna se usan habitualmente hasta `\subsection`. En
-revistas de dos columnas, `\subsubsection` ya es inusual.
+En artículos se usa habitualmente hasta `\subsection`.
 
 #### Tabla de contenidos
 
@@ -603,7 +602,7 @@ Los delimitadores se ajustan automáticamente al tamaño del contenido.
 |---|---|---|
 | `\qty( \frac{a}{b} )` | `\left( \frac{a}{b} \right)` | $\left( \dfrac{a}{b} \right)$ |
 | `\qty[ \frac{a}{b} ]` | `\left[ \frac{a}{b} \right]` | $\left[ \dfrac{a}{b} \right]$ |
-| `\qty{ \frac{a}{b} }` | `\left\{ \frac{a}{b} \right\}` | $\left\{ \dfrac{a}{b} \right\}$ |
+| `\qty{ \frac{a}{b} }` | `\left\{ \frac{a}{b} \right\}` | $\left\lbrace \dfrac{a}{b} \right\rbrace$ |
 
 **Valor absoluto y norma**
 
@@ -979,9 +978,281 @@ orden de carga correcto en el preámbulo es:
 `\url{}` imprime la URL tal cual; `\href{}{}` permite texto alternativo.
 Sin `hyperref` ambos comandos no están disponibles.
 
+## Unidad 3 · Maquetación del documento
+
+### El paquete `geometry`
+
+El paquete `geometry` controla las dimensiones de la página y los márgenes.
+Sin él, LaTeX usa los márgenes predeterminados de la clase — generalmente
+amplios para `article`.
+
+```latex
+\usepackage{geometry}
+```
+
+#### Opciones básicas
+
+La forma más legible es pasar todas las opciones en un bloque:
+
+```latex
+\usepackage[
+    % tamaño de papel
+    letterpaper,
+    % márgenes
+    top    = 2.5cm,
+    bottom = 2.5cm,
+    left   = 2.5cm,
+    right  = 2.5cm,
+]{geometry}
+```
+
+Los tamaños de página más comunes:
+
+| Opción | Tamaño |
+|---|---|
+| `letterpaper` | 8.5 × 11 in (EUA) |
+| `a4paper` | 210 × 297 mm (Europa, estándar internacional) |
+| `a5paper` | 148 × 210 mm |
+
+#### Las opciones `includefoot` e `includehead`
+
+Por defecto, LaTeX calcula los márgenes excluyendo el encabezado y el pie
+de página — es decir, el encabezado crece hacia afuera del margen `top`
+declarado, y el pie de página hacia afuera del margen `bottom`. Esto
+significa que el margen real entre el texto y el borde de la página es
+mayor que el declarado, pero el encabezado y pie pueden quedar muy cerca
+del borde físico.
+
+Las opciones `includehead` e `includefoot` especifican a `geometry` que el margen
+declarado incluya el espacio del encabezado y el pie de página, respectivamente:
+
+```latex
+\usepackage[
+    letterpaper,
+    top      = 2.5cm,
+    bottom   = 2.5cm,
+    left     = 2.5cm,
+    right    = 2.5cm,
+    includehead,
+    includefoot,
+]{geometry}
+```
+
+Con estas opciones, el margen `top` de 2.5 cm incluye el encabezado — el
+texto del cuerpo empieza más abajo, pero la distancia entre el encabezado
+y el borde superior de la página es exactamente la declarada. Es el
+comportamiento más predecible cuando se diseña una plantilla con
+encabezados personalizados.
+
+> **Recomendación:** Es recomendable usar siempre `includehead` e `includefoot`
+> cuando se trabaja con `fancyhdr`. Sin ellas, los márgenes visuales del documento
+> dependen de la altura del encabezado y el pie, que puede variar entre
+> páginas.
+
 ---
 
-## Unidad 3 · Preparando un manuscrito para publicación
+### El paquete `fancyhdr`
+
+El paquete `fancyhdr` da control total sobre el contenido y estilo de encabezados y
+pies de página. Es el paquete estándar para tesis, reportes y plantillas
+de revistas construidas desde cero.
+
+```latex
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+```
+
+El comando `\pagestyle{fancy}` activa el estilo de `fancyhdr` en todo el documento.
+Las páginas que deben tener un estilo distinto (portada, por ejemplo) usan
+`\thispagestyle{empty}`.
+
+#### Anatomía de la página
+
+`fancyhdr` divide el encabezado y el pie de página en tres zonas: izquierda (`L`),
+centro (`C`) y derecha (`R`). Cada zona se define con:
+
+```latex
+% encabezado
+\fancyhead[L]{izquierda}
+\fancyhead[C]{centro}
+\fancyhead[R]{derecha}
+% pie de página
+\fancyfoot[L]{izquierda}
+\fancyfoot[C]{centro}
+\fancyfoot[R]{derecha}
+```
+
+Para limpiar todas las zonas antes de redefinirlas:
+
+```latex
+\fancyhf{}   % limpia encabezado y pie de página
+```
+
+#### Ejemplo: tesis o reporte
+
+Un estilo clásico con título del capítulo a la izquierda y número de
+página a la derecha:
+
+```latex
+\fancyhf{}
+\fancyhead[L]{\leftmark}        % nombre del capítulo actual
+\fancyhead[R]{\thepage}         % número de página
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+```
+
+`\leftmark` contiene el nombre del capítulo o sección actual,
+actualizado automáticamente por LaTeX. `\headrulewidth` y
+`\footrulewidth` controlan el grosor de la línea divisoria — `0pt` la
+elimina.
+
+#### Ejemplo: plantilla de revista desde cero
+
+Si se construye una plantilla propia que simule el estilo de una revista,
+`fancyhdr` permite imprimir información fija en todas las páginas — el
+nombre de la revista en el encabezado y el DOI en el pie:
+
+```latex
+\fancyhf{}
+\fancyhead[C]{\small\textit{Journal of Applied Physics}}
+\fancyfoot[L]{\small DOI: 10.1063/5.0000000}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+```
+
+Esto produce un encabezado con el nombre de la revista centrado y un pie
+con el DOI en la esquina inferior izquierda y el número de página al
+centro — estructura típica de artículos de AIP Publishing.
+
+> **En revistas reales:** Las clases de revista (`revtex4-2`, `iopart`,
+> `optica-article`) definen sus propios encabezados y pies — no es recomendable
+> usar `fancyhdr` en documentos destinados a enviarse a revisión, ya que entraría en
+> conflicto con la clase. El paquete `fancyhdr` es para documentos donde el usuario controla
+> completamente el diseño: tesis, reportes o preprints con formato propio.
+
+### El paquete `enumitem`
+
+`enumitem` extiende los entornos de lista estándar (`itemize`,
+`enumerate`, `description`) con control preciso sobre espaciado,
+etiquetas y sangría.
+
+```latex
+\usepackage{enumitem}
+```
+
+#### Espaciado
+
+El problema más frecuente con las listas en LaTeX es el espaciado vertical
+excesivo entre ítems. El paquete `enumitem` lo resuelve con `[noitemsep]` y `[nosep]`:
+
+```latex
+\begin{itemize}[noitemsep]
+    \item Primer ítem
+    \item Segundo ítem
+\end{itemize}
+```
+
+Además, es posible escoger el márgen izquierdo usando la opción `[leftmargin=...]`.
+
+| Opción | Efecto |
+|---|---|
+| `noitemsep` | Elimina el espacio extra entre ítems |
+| `nosep` | Elimina todo el espacio vertical — entre ítems y alrededor de la lista |
+| `topsep=6pt` | Controla el espacio antes y después de la lista |
+| `itemsep=4pt` | Controla el espacio entre ítems |
+| `leftmargin=2mm` | Controla el margen izquierdo |
+| `leftmargin=*` | Elimina por completo el margen izquierdo |
+
+#### Etiquetas personalizadas
+
+```latex
+% Enumerate con letras
+\begin{enumerate}[label=\alph*.]
+    \item Primera opción
+    \item Segunda opción
+\end{enumerate}
+
+% Enumerate con números romanos
+\begin{enumerate}[label=\roman*.]
+    \item Primera opción
+    \item Segunda opción
+\end{enumerate}
+
+% Itemize con guión en lugar de bullet
+\begin{itemize}[label=--]
+    \item Primer ítem
+    \item Segundo ítem
+\end{itemize}
+```
+
+#### Configuración global
+
+Para aplicar un estilo a todos los entornos de lista del documento:
+
+```latex
+\setlist{noitemsep}             % elimina espaciado en todas las listas
+\setlist[itemize]{label=--}     % guión en todos los itemize
+\setlist[enumerate]{label=\arabic*.}  % números arábigos en todos los enumerate
+```
+
+> **Recomendación:** En artículos científicos, `noitemsep` y `leftmargin=*` global es casi
+> siempre la decisión correcta — el espaciado predeterminado de LaTeX está
+> pensado para documentos de texto corrido, no para listas compactas de
+> resultados o pasos experimentales.
+
+---
+
+### El paquete `caption`
+
+`caption` permite personalizar el formato de los pies de figura y tabla —
+fuente, separador, alineación y estilo del label.
+
+```latex
+\usepackage{caption}
+```
+
+#### Opciones comunes
+
+```latex
+\usepackage[
+    font       = small,
+    labelfont  = bf,
+    labelsep   = period,
+    justification = raggedright,
+]{caption}
+```
+
+| Opción | Valores comunes | Efecto |
+|---|---|---|
+| `font` | `small`, `footnotesize`, `normalsize` | Tamaño del texto del caption |
+| `labelfont` | `bf`, `it`, `sc` | Estilo del label (`Figura 1`) |
+| `labelsep` | `period`, `colon`, `space`, `quad` | Separador entre label y texto |
+| `justification` | `raggedright`, `centering`, `justified` | Alineación del texto |
+
+#### Resultado del ejemplo
+
+La configuración anterior produce captions con texto en `\small`, label en
+negrita (`**Figura 1**`), separados por un punto, y alineados a la
+izquierda — el estilo más frecuente en revistas de física como Physical
+Review y Optics Letters.
+
+#### Captions fuera de flotantes
+
+`caption` también permite añadir pies de figura a imágenes que no están
+dentro de un entorno `figure`, usando `\captionof`:
+
+```latex
+\captionof{figure}{Descripción de la figura.}
+\captionof{table}{Descripción de la tabla.}
+```
+
+> **Recomendación:** Define el estilo de `caption` en el preámbulo una
+> sola vez. Si el artículo va a una revista, su clase probablemente ya
+> define el formato — en ese caso omite `caption` o cárgalo solo para
+> `\captionof`.
+
+---
 
 ### Documentos de doble columna
 
@@ -1088,7 +1359,7 @@ total de la página. Para referirse al ancho de una sola columna se usa
 > automáticamente, y evitan tener que refornatear el documento al momento
 > de la sumisión.
 
-## Unidad extra · Definir tus propios comandos
+## Unidad 4 · Definir tus propios comandos
 
 En un artículo de física es común repetir las mismas expresiones decenas de
 veces — el hamiltoniano del sistema, la función de onda, operadores con
