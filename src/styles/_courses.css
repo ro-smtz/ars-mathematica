@@ -416,3 +416,11 @@
   border-top: 2px solid var(--border);
   padding-top: 0.25rem;
 }
+
+.notes-toc-mobile {
+  display: contents;
+}
+
+.notes-toc-mobile > summary {
+  display: none;
+}

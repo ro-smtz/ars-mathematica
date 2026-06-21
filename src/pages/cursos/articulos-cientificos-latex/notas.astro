@@ -13,23 +13,25 @@ const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
 <BaseLayout title={entry.data.title}>
   <div class="notes-layout container">
     <aside class="notes-toc">
-      <p class="notes-toc-title">Contenido</p>
-      <nav>
-        <ul class="notes-toc-list">
-          {filteredHeadings.map(h => (
-            <li class={`notes-toc-item depth-${h.depth}`}>
-              <a href={`#${h.slug}`}>{h.text}</a>
+      <details class="notes-toc-mobile">
+        <summary class="notes-toc-title">Contenido</summary>
+        <nav>
+          <ul class="notes-toc-list">
+            {filteredHeadings.map(h => (
+              <li class={`notes-toc-item depth-${h.depth}`}>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+            <li class="notes-toc-item notes-toc-top">
+              <a href="#top">Volver al inicio ↑</a>
             </li>
-          ))}
-          <li class="notes-toc-item notes-toc-top">
-            <a href="#top">Volver al inicio ↑</a>
-          </li>  
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      </details>
     </aside>
 
     <main class="notes-content">
-      <h1>{entry.data.title}</h1>
+      <h1 id="top">{entry.data.title}</h1>
       <div class="course-content">
         <Content />
       </div>

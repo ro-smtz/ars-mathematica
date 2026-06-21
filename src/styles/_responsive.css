@@ -120,4 +120,35 @@
   .footer-inner {
     gap: 1rem;
   }
+
+  .notes-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .notes-toc {
+    position: static;
+  }
+
+  .notes-toc-mobile {
+    display: block;
+  }
+
+  .notes-toc-mobile > summary {
+    display: block;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    user-select: none;
+  }
+
+  .notes-toc-list {
+    border-left: 1px solid var(--border);
+    margin-top: 0.5rem;
+  }
 }
