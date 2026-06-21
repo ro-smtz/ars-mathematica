@@ -8,7 +8,7 @@ durante la escritura de artículos científicos en física, matemáticas e ingen
 
 ---
 
-## Unidad 1 · Estructura de un artículo científico
+## Estructura de un artículo científico
 
 ### Organización del contenido
 
@@ -228,7 +228,7 @@ tienen un perfil que ejecuta esta secuencia automáticamente.
 > escribirlas a mano. Siempre verifica que `author`, `title`, `journal` y
 > `year` estén completos antes de compilar.
 
-## Unidad 2 · Aplicaciones y utilidades
+## Aplicaciones y utilidades
 
 ### Escritura de texto matemático
 
@@ -978,7 +978,7 @@ orden de carga correcto en el preámbulo es:
 `\url{}` imprime la URL tal cual; `\href{}{}` permite texto alternativo.
 Sin `hyperref` ambos comandos no están disponibles.
 
-## Unidad 3 · Maquetación del documento
+## Maquetación del documento
 
 ### El paquete `geometry`
 
@@ -1359,7 +1359,7 @@ total de la página. Para referirse al ancho de una sola columna se usa
 > automáticamente, y evitan tener que refornatear el documento al momento
 > de la sumisión.
 
-## Unidad 4 · Definir tus propios comandos
+## Definir tus propios comandos
 
 En un artículo de física es común repetir las mismas expresiones decenas de
 veces — el hamiltoniano del sistema, la función de onda, operadores con
