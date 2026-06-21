@@ -417,10 +417,10 @@
   padding-top: 0.25rem;
 }
 
-.notes-toc-mobile {
-  display: contents;
+.notes-toc-toggle {
+  display: none;
 }
 
-.notes-toc-mobile > summary {
+.notes-toc-overlay {
   display: none;
 }
