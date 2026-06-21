@@ -152,7 +152,7 @@ El argumento `{9}` indica el número máximo de referencias (un dígito = hasta
 formateo (estilo de la revista). Cambiar de APS a AIP es cuestión de cambiar
 una línea.
 
-##### El archivo `.bib`
+**El archivo `.bib`**
 
 Cada referencia es una entrada con un tipo y una clave única. Los tipos más
 comunes:
@@ -176,11 +176,21 @@ comunes:
     year      = {1999},
 }
 
-@inproceedings{ruggenthaler2018,
-    author    = {Ruggenthaler, Michael and Tancogne-Dejean, Nicolas},
-    title     = {From a quantum-electrodynamical light-matter description to novel spectroscopies},
-    booktitle = {Nature Reviews Chemistry},
-    year      = {2018},
+@inproceedings{vaswani2017attention, 
+    author    = {Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin}, 
+    title     = {Attention Is All You Need}, 
+    booktitle = {Advances in Neural Information Processing Systems (NeurIPS)}, 
+    year      = {2017}, 
+    pages     = {5998--6008}
+}
+
+@online{einstein1905arxiv,
+    author     = {Albert Einstein},
+    title      = {On the Electrodynamics of Moving Bodies},
+    year       = {1905},
+    eprint     = {physics/0605038},
+    eprinttype = {arXiv},
+    url        = {https://arxiv.org/abs/physics/0605038}
 }
 ```
 
@@ -443,12 +453,63 @@ Extiende las capacidades matemáticas básicas de LaTeX y proporciona los entorn
 **Entorno `equation`**
 
 Permite numerar una ecuación individual.
+Es quizá el entorno más empleado en documentos científicos.
 
 ```latex
 \begin{equation}
     E = mc^2
 \end{equation}
 ```
+
+Sin embargo, en muchas ocasiones, el contenido de una ecuación puede ser demasiado largo para mostrarse correctamete en una sola línea.
+En este caso, en necesario insertar saltos de línea _dentro de la ecuación_. 
+Al hacer eso, es importante recordar algunas reglas para mejorar la legibilidad de las expresiones.
+
+1. En general, uno debe cortar una ecuación _antes_ de un signo de igual o de un operador binario;
+2. Se prefiere un salto de línea antes de un signo de igual que de un operador.
+3. Se prefiere un salto de línea antes de signo de suma o resta que de un signo de multiplicación;
+4. Cualquier otro salto de línea debería ser evitado si es posible.
+
+
+**Entorno `{multline}`**
+
+Útil para expresiones matemáticas que deben dividirse en varias líneas se utiliza el entorno `{multline}`, que permite realizar saltos de línea con el comando `\\`:
+
+```latex
+\begin{multline}
+    a+b+c+d+e+f+g+h+i+j+k+l+m+n\\
+    = x+y+z
+\end{multline}
+```
+
+La primera línea de la ecuación se alineará a la izquierda, la última, a la derecha, y todas las demás, al centro.
+
+> Ya que, aunque abarca varias líneas en el documento, se trata de una sola expresión matemática, se le asigna un único número de ecuación.
+
+**Entorno `gather`**
+
+Para escribir múltiples ecuaciones dentro del mismo entorno `{equation}` sin alineación en particular, se utiliza el entorno `{gather}`.
+
+```latex
+\begin{gather}
+    a = b+c \\
+    d = e+f
+\end{gather}
+```
+
+En este caso, existe un número de ecuacion por cada línea.
+Es de alguna manera, una manera equivalente de escribir
+
+```latex
+\begin{equation}
+    a = b+c
+\end{equation}
+\begin{equation}
+    d = e+f
+\end{equation}
+```
+
+pero eliminando el espacio innecesario que existe entre ambas ecuaciones.
 
 **Entorno `align`**
 
@@ -459,28 +520,6 @@ Permite alinear varias ecuaciones utilizando el símbolo `&`.
     f(x) &= x^2 + 1 \\
     g(x) &= x^3 - 2x
 \end{align}
-```
-
-**Entorno `gather`**
-
-Centra varias ecuaciones sin alinearlas.
-
-```latex
-\begin{gather}
-    a = b+c \\
-    d = e+f
-\end{gather}
-```
-
-**Entorno `multline`**
-
-Útil para ecuaciones largas que deben dividirse en varias líneas.
-
-```latex
-\begin{multline}
-    a+b+c+d+e+f+g+h+i+j+k+l+m+n\\
-    = x+y+z
-\end{multline}
 ```
 
 **Entorno `split`**
@@ -514,6 +553,26 @@ La ecuación (\ref{eq:schrodinger}) se llama \emph{ecuación de Schrödinger}.
 ```
 
 Para colocar un número de ecuación arbitrario, se usa `\tag{}`.
+
+---
+
+#### El paquete `mathtools`
+
+El paquete `mathtools` amplía las funcionalidades de `amsmath` e incorpora numerosas herramientas útiles para la escritura matemática avanzada. En la práctica, muchos autores lo utilizan como reemplazo directo de `amsmath`.
+
+```latex
+\usepackage{mathtools}
+```
+
+Entre sus características más útiles se encuentran los símbolos para definiciones matemáticas:
+
+```latex
+f(x) \coloneqq x^2 + 1
+```
+
+que produce $f(x) \coloneqq x^2 + 1$.
+
+Aunque no es indispensable para documentos sencillos, `mathtools` se ha convertido en una extensión muy popular de `amsmath` en artículos científicos y tesis de matemáticas y física.
 
 ---
 
@@ -566,6 +625,32 @@ $$
 
 > **Recomendación:** Usualmente se cargan en conjunto las tres paqueterías básicas de matemáticas:
 > `\usepackage{amsmath,amssymb,amsfonts}`
+
+---
+
+#### El paquete `bm`
+
+El paquete `bm` permite escribir símbolos matemáticos en negrita, incluyendo letras griegas, operadores y otros símbolos que no pueden formatearse correctamente con comandos como `\mathbf`.
+
+```latex
+\usepackage{bm}
+```
+
+Por ejemplo:
+
+```latex
+\bm{k}, % compárese con \mathbf{k}
+\bm{\alpha},
+\bm{\nabla} % compárese con simplemente \nabla
+```
+
+produce vectores y símbolos matemáticos en negrita: $\bm{k}$ (no $\mathbf{k}$), $\bm{\alpha}$ y $\bm{\nabla}$ (no $\nabla$).
+
+Esto resulta especialmente útil en física, donde es habitual representar vectores, tensores o cantidades multidimensionales mediante símbolos en negrita.
+
+En estos casos, `bm` proporciona una solución robusta y ampliamente utilizada en la literatura científica.
+
+Muchos autores emplean `bm` incluso cuando utilizan otros paquetes de física, debido a su simplicidad y compatibilidad con una gran variedad de documentos.
 
 ---
 
