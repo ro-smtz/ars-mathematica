@@ -513,7 +513,9 @@ pero eliminando el espacio innecesario que existe entre ambas ecuaciones.
 
 **Entorno `align`**
 
-Permite alinear varias ecuaciones utilizando el símbolo `&`.
+Cuando se desea alinear el conjunto de ecuaciones que se quiere imprimir, se utiliza el entorno `{align}`.
+Permite alinear varias ecuaciones utilizando el símbolo `&`, muy similar a como ocurre dentro de un entorno `{tabular}`.
+Para producir un espaciado correcto, el símbolo `&` debe colocarse _antes_ de cualquier operador binario.
 
 ```latex
 \begin{align}
@@ -522,18 +524,16 @@ Permite alinear varias ecuaciones utilizando el símbolo `&`.
 \end{align}
 ```
 
-**Entorno `split`**
-
-Permite dividir una ecuación dentro de `equation`.
+Además, este mismo entorno permite alinear múltiples conjuntos de ecuaciones en una misma línea.
+Se usa un símbolo de `&` para separar los elementos alineados:
 
 ```latex
-\begin{equation}
-\begin{split}
-    f(x) &= x^2 + 2x + 1 \\
-         &= (x+1)^2
-\end{split}
-\end{equation}
+\begin{align}
+    a & \succeq b & c & \leq d \\
+    a & \geq d & d & \prec c
+\end{align}
 ```
+
 
 **Cómo referenciar ecuaciones**
 
@@ -1559,3 +1559,86 @@ entre notación de Leibniz y notación prima, y un orden opcional:
 > primero, varios argumentos opcionales independientes, o lógica condicional
 > dentro del comando. Para la mayoría de los macros de un artículo,
 > `\newcommand` es suficiente.
+
+## Recursos y manuales de referencia
+
+Los siguientes documentos constituyen algunas de las referencias más utilizadas en la preparación de artículos científicos. Aunque no es necesario estudiarlos de principio a fin, contienen recomendaciones oficiales sobre notación matemática, símbolos químicos, unidades físicas y estilo editorial. Son recursos de consulta muy valiosos para estudiantes, investigadores y docentes.
+
+### SI Brochure: *The International System of Units (SI)*
+
+Publicada por el *Bureau International des Poids et Mesures* (BIPM), esta guía constituye la referencia oficial del Sistema Internacional de Unidades. Contiene definiciones actualizadas de las unidades SI, reglas para la escritura de símbolos, prefijos, magnitudes físicas y ejemplos de uso correcto en documentos científicos.
+
+**Descargar:**
+<u>
+<a href="/ars-mathematica/books/courses/si-brochure.pdf" target="_blank" rel="noopener noreferrer">Descargar SI Brochure ↓</a>
+</u>
+
+Ver en el 
+<u>
+<a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noopener noreferrer">sitio oficial ↗</a>
+</u>
+
+---
+
+### IUPAC Green Book: *Quantities, Units and Symbols in Physical Chemistry*
+
+Conocido informalmente como el *Green Book*, este documento de la *International Union of Pure and Applied Chemistry* (IUPAC) recopila recomendaciones internacionales para la notación utilizada en física y química. Incluye convenciones tipográficas, escritura de magnitudes físicas, símbolos químicos, constantes fundamentales, vectores, tensores y unidades.
+
+Es una referencia especialmente útil para estudiantes de físico-química, espectroscopía, química cuántica y áreas afines.
+
+**Descargar:**
+<u>
+<a href="/ars-mathematica/books/courses/iupac-green-book.pdf" target="_blank" rel="noopener noreferrer">IUPAC Green Book ↓</a>
+</u>
+
+Ver en el 
+<u>
+<a href="https://iupac.org/what-we-do/books/greenbook/" target="_blank" rel="noopener noreferrer">sitio oficial ↗</a>
+</u>
+
+---
+
+### Style Manual of the American Institute of Physic
+
+Manual editorial utilizado por el *American Journal of Physics*. Describe convenciones de estilo para la redacción de artículos científicos, incluyendo recomendaciones sobre ecuaciones, figuras, tablas, referencias bibliográficas, nomenclatura y presentación general de manuscritos.
+
+Aunque está orientado a una revista específica, muchas de sus recomendaciones resultan aplicables a la escritura científica en física de manera general.
+
+**Descargar:**
+<u>
+<a href="/ars-mathematica/books/courses/aip-style-manual.pdf" target="_blank" rel="noopener noreferrer">Descargar AIP Style Guide ↓</a>
+</u>
+
+Ver en el 
+<u>
+<a href="https://www.aapt.org/Publications/AJP/Contributors/Formatting_the_manuscript.cfm" target="_blank" rel="noopener noreferrer">sitio oficial ↗</a>
+</u>
+
+---
+
+### The Not So Short Introduction to LaTeX2e    
+
+Uno de los textos introductorios más conocidos para aprender LaTeX. Presenta de forma progresiva la estructura de documentos, la escritura matemática, la gestión de referencias, la inclusión de imágenes y numerosas herramientas avanzadas del sistema.
+
+Puede utilizarse como complemento de este curso para profundizar en temas que no se cubren en detalle.
+
+**Descargar:**
+<u>
+<a href="/ars-mathematica/books/courses/not-so-short-introduction.pdf" target="_blank" rel="noopener noreferrer">The Not So Short Introduction to LaTeX2e ↓</a>
+</u>
+
+---
+
+### AMS Style Guide: *Journals*
+
+La *AMS Style Guide* recopila los estándares editoriales y las prácticas de publicación empleadas por la *American Mathematical Society* (AMS) en la producción de sus revistas científicas. El documento aborda aspectos fundamentales de la estructura de un artículo científico, incluyendo la organización de teoremas, definiciones y demostraciones, la preparación de figuras y tablas, el formato de las referencias bibliográficas y numerosas convenciones tipográficas utilizadas en la literatura matemática profesional.
+
+Aunque está dirigida principalmente a autores que publican en revistas de la AMS, muchas de sus recomendaciones son aplicables a cualquier trabajo con contenido matemático avanzado.
+
+**Descargar:**
+<u><a href="/books/courses/ams-style-guide.pdf" target="_blank" rel="noopener noreferrer">AMS Style Guide ↓</a></u>
+
+Ver en el 
+<u>
+<a href="https://www.ams.org/arc/styleguide/index.html" target="_blank" rel="noopener noreferrer">sitio oficial ↗</a>
+</u>
