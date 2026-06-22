@@ -13,7 +13,7 @@ const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
 <BaseLayout title={entry.data.title}>
   <div class="notes-layout container">
     <aside class="notes-toc" id="notes-toc">
-      <p class="notes-toc-title">Contenido</p>
+      <p class="notes-toc-title"><a href="#top">Contenido</a></p>
       <nav>
         <ul class="notes-toc-list">
           {filteredHeadings.map(h => (
@@ -65,4 +65,14 @@ const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
       link.addEventListener("click", closeToc);
     });
   </script>
+
+  <script>
+    document.querySelectorAll(".latex-demo-result[data-latex]").forEach(el => {
+        const encoded = el.getAttribute("data-latex");
+        if (!encoded) return;
+        const latex = atob(encoded);
+        el.textContent = latex;
+    });
+  </script>
+
 </BaseLayout>

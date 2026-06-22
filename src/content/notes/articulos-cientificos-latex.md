@@ -6,6 +6,10 @@ course: "articulos-cientificos-latex"
 Estas notas recopilan algunos paquetes, comandos y técnicas de uso frecuente
 durante la escritura de artículos científicos en física, matemáticas e ingeniería.
 
+<a href="/ars-mathematica/cursos/articulos-cientificos-latex" class="back-link">
+  ← Regresar a la descripción del curso
+</a>
+
 ---
 
 ## Estructura de un artículo científico
@@ -1616,6 +1620,22 @@ Ver en el
 
 ---
 
+### AMS Style Guide: *Journals*
+
+La *AMS Style Guide* recopila los estándares editoriales y las prácticas de publicación empleadas por la *American Mathematical Society* (AMS) en la producción de sus revistas científicas. El documento aborda aspectos fundamentales de la estructura de un artículo científico, incluyendo la organización de teoremas, definiciones y demostraciones, la preparación de figuras y tablas, el formato de las referencias bibliográficas y numerosas convenciones tipográficas utilizadas en la literatura matemática profesional.
+
+Aunque está dirigida principalmente a autores que publican en revistas de la AMS, muchas de sus recomendaciones son aplicables a cualquier trabajo con contenido matemático avanzado.
+
+**Descargar:**
+<u><a href="/ars-mathematica/books/courses/ams-style-guide.pdf" target="_blank" rel="noopener noreferrer">AMS Style Guide ↓</a></u>
+
+Ver en el 
+<u>
+<a href="https://www.ams.org/arc/styleguide/index.html" target="_blank" rel="noopener noreferrer">sitio oficial ↗</a>
+</u>
+
+---
+
 ### The Not So Short Introduction to LaTeX2e    
 
 Uno de los textos introductorios más conocidos para aprender LaTeX. Presenta de forma progresiva la estructura de documentos, la escritura matemática, la gestión de referencias, la inclusión de imágenes y numerosas herramientas avanzadas del sistema.
@@ -1625,20 +1645,4 @@ Puede utilizarse como complemento de este curso para profundizar en temas que no
 **Descargar:**
 <u>
 <a href="/ars-mathematica/books/courses/not-so-short-introduction.pdf" target="_blank" rel="noopener noreferrer">The Not So Short Introduction to LaTeX2e ↓</a>
-</u>
-
----
-
-### AMS Style Guide: *Journals*
-
-La *AMS Style Guide* recopila los estándares editoriales y las prácticas de publicación empleadas por la *American Mathematical Society* (AMS) en la producción de sus revistas científicas. El documento aborda aspectos fundamentales de la estructura de un artículo científico, incluyendo la organización de teoremas, definiciones y demostraciones, la preparación de figuras y tablas, el formato de las referencias bibliográficas y numerosas convenciones tipográficas utilizadas en la literatura matemática profesional.
-
-Aunque está dirigida principalmente a autores que publican en revistas de la AMS, muchas de sus recomendaciones son aplicables a cualquier trabajo con contenido matemático avanzado.
-
-**Descargar:**
-<u><a href="/books/courses/ams-style-guide.pdf" target="_blank" rel="noopener noreferrer">AMS Style Guide ↓</a></u>
-
-Ver en el 
-<u>
-<a href="https://www.ams.org/arc/styleguide/index.html" target="_blank" rel="noopener noreferrer">sitio oficial ↗</a>
 </u>
