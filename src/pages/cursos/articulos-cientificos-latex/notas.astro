@@ -66,13 +66,4 @@ const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
     });
   </script>
 
-  <script>
-    document.querySelectorAll(".latex-demo-result[data-latex]").forEach(el => {
-        const encoded = el.getAttribute("data-latex");
-        if (!encoded) return;
-        const latex = atob(encoded);
-        el.textContent = latex;
-    });
-  </script>
-
 </BaseLayout>
