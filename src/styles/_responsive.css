@@ -133,7 +133,7 @@
     top: 50%;
     left: 50%;
 
-    width: 260px;
+    width: 270px;
     height: auto;
     max-height: 60vh;
     background: var(--background);
@@ -162,7 +162,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 0.75rem;
+    bottom: 0.25rem;
     height: 2.25rem;
     padding: 0 1.25rem;
 
@@ -186,11 +186,11 @@
 
 .notes-toc-item a {
   font-size: 1rem;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 .notes-toc-item.depth-3 a {
-  font-size: 0.9rem;
-  font-weight: 350;
+  font-size: 0.95rem;
+  font-weight: 450;
 }
 }
